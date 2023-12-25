@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using velaMaryWebApp.Models;
 
 namespace velaMaryWebApp.Areas.Admin.Controllers
 {
@@ -11,6 +12,7 @@ namespace velaMaryWebApp.Areas.Admin.Controllers
         // GET: Admin/Home
         public ActionResult Index()
         {
+            velaMaryEntities db = new velaMaryEntities();
             return View();
         }
     }

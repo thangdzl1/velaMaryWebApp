@@ -177,6 +177,18 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Entities\Blog.cs" />
+    <Compile Include="Models\Entities\Cart.cs" />
+    <Compile Include="Models\Entities\Catalog_Product.cs" />
+    <Compile Include="Models\Entities\Product.cs" />
+    <Compile Include="Models\Entities\Review.cs" />
+    <Compile Include="Models\Entities\Role.cs" />
+    <Compile Include="Models\Entities\Size.cs" />
+    <Compile Include="Models\Entities\Tag.cs" />
+    <Compile Include="Models\Entities\Catalog.cs" />
+    <Compile Include="Models\Entities\Tag_Blog.cs" />
+    <Compile Include="Models\Entities\User.cs" />
+    <Compile Include="Models\Entities\U_Adress.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
