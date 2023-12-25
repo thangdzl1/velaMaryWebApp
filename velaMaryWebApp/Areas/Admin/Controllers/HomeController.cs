@@ -9,10 +9,18 @@ namespace velaMaryWebApp.Areas.Admin.Controllers
 {
     public class HomeController : Controller
     {
+        //private velaMaryEntities db;
+        
+
+        //HomeController()
+        //{
+        //    //Lệnh kết nối db
+        //    db = new velaMaryEntities();
+        //}
         // GET: Admin/Home
         public ActionResult Index()
-        {
-            velaMaryEntities db = new velaMaryEntities();
+        { 
+            //List<tb_catalog> catalog = db.tb_catalog.ToList();
             return View();
         }
     }

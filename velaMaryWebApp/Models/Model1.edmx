@@ -32,7 +32,16 @@
           </Key>
           <Property Name="cart_id" Type="int" Nullable="false" />
           <Property Name="user_id" Type="int" />
+          <Property Name="status_id" Type="int" />
           <Property Name="price" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_cart_status">
+          <Key>
+            <PropertyRef Name="status_id" />
+          </Key>
+          <Property Name="status_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="icon" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="tb_catalog">
           <Key>
@@ -134,7 +143,7 @@
           <Property Name="address_id" Type="int" />
           <Property Name="role_id" Type="int" />
         </EntityType>
-        <Association Name="FK__tb_blog__user_id__68487DD7">
+        <Association Name="FK__tb_blog__user_id__59063A47">
           <End Role="tb_user" Type="Self.tb_user" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -148,7 +157,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tb_cart__user_id__6B24EA82">
+        <Association Name="FK__tb_cart__status___628FA481">
+          <End Role="tb_cart_status" Type="Self.tb_cart_status" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_cart" Type="Self.tb_cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_cart_status">
+              <PropertyRef Name="status_id" />
+            </Principal>
+            <Dependent Role="tb_cart">
+              <PropertyRef Name="status_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_cart__user_id__5BE2A6F2">
           <End Role="tb_user" Type="Self.tb_user" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -162,7 +185,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tb_catalo__catal__693CA210">
+        <Association Name="FK__tb_catalo__catal__59FA5E80">
           <End Role="tb_catalog" Type="Self.tb_catalog" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -176,7 +199,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tb_catalo__produ__6A30C649">
+        <Association Name="FK__tb_catalo__produ__5AEE82B9">
           <End Role="tb_product" Type="Self.tb_product" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -190,7 +213,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tb_produc__cart___70DDC3D8">
+        <Association Name="FK__tb_produc__cart___619B8048">
           <End Role="tb_cart" Type="Self.tb_cart" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -204,7 +227,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tb_produc__colle__6EF57B66">
+        <Association Name="FK__tb_produc__colle__5FB337D6">
           <End Role="tb_collection" Type="Self.tb_collection" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -218,7 +241,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tb_produc__size___6FE99F9F">
+        <Association Name="FK__tb_produc__size___60A75C0F">
           <End Role="tb_size" Type="Self.tb_size" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -232,7 +255,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tb_review__produ__6C190EBB">
+        <Association Name="FK__tb_review__produ__5CD6CB2B">
           <End Role="tb_product" Type="Self.tb_product" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -246,7 +269,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tb_tag_bl__blog___6754599E">
+        <Association Name="FK__tb_tag_bl__blog___5812160E">
           <End Role="tb_blog" Type="Self.tb_blog" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -260,7 +283,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tb_tag_bl__tag_i__66603565">
+        <Association Name="FK__tb_tag_bl__tag_i__571DF1D5">
           <End Role="tb_tag" Type="Self.tb_tag" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -274,7 +297,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tb_u_addr__user___72C60C4A">
+        <Association Name="FK__tb_u_addr__user___6383C8BA">
           <End Role="tb_user" Type="Self.tb_user" Multiplicity="0..1" />
           <End Role="tb_u_address" Type="Self.tb_u_address" Multiplicity="*" />
           <ReferentialConstraint>
@@ -286,7 +309,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tb_user__address__6D0D32F4">
+        <Association Name="FK__tb_user__address__5DCAEF64">
           <End Role="tb_u_address" Type="Self.tb_u_address" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -300,7 +323,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tb_user__role_id__6E01572D">
+        <Association Name="FK__tb_user__role_id__5EBF139D">
           <End Role="tb_role" Type="Self.tb_role" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -318,6 +341,7 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_blog" EntityType="Self.tb_blog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_cart" EntityType="Self.tb_cart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_cart_status" EntityType="Self.tb_cart_status" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_catalog" EntityType="Self.tb_catalog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_catalog_product" EntityType="Self.tb_catalog_product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_collection" EntityType="Self.tb_collection" Schema="dbo" store:Type="Tables" />
@@ -329,55 +353,59 @@
           <EntitySet Name="tb_tag_blog" EntityType="Self.tb_tag_blog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_u_address" EntityType="Self.tb_u_address" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_user" EntityType="Self.tb_user" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__tb_blog__user_id__68487DD7" Association="Self.FK__tb_blog__user_id__68487DD7">
+          <AssociationSet Name="FK__tb_blog__user_id__59063A47" Association="Self.FK__tb_blog__user_id__59063A47">
             <End Role="tb_user" EntitySet="tb_user" />
             <End Role="tb_blog" EntitySet="tb_blog" />
           </AssociationSet>
-          <AssociationSet Name="FK__tb_cart__user_id__6B24EA82" Association="Self.FK__tb_cart__user_id__6B24EA82">
+          <AssociationSet Name="FK__tb_cart__status___628FA481" Association="Self.FK__tb_cart__status___628FA481">
+            <End Role="tb_cart_status" EntitySet="tb_cart_status" />
+            <End Role="tb_cart" EntitySet="tb_cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_cart__user_id__5BE2A6F2" Association="Self.FK__tb_cart__user_id__5BE2A6F2">
             <End Role="tb_user" EntitySet="tb_user" />
             <End Role="tb_cart" EntitySet="tb_cart" />
           </AssociationSet>
-          <AssociationSet Name="FK__tb_catalo__catal__693CA210" Association="Self.FK__tb_catalo__catal__693CA210">
+          <AssociationSet Name="FK__tb_catalo__catal__59FA5E80" Association="Self.FK__tb_catalo__catal__59FA5E80">
             <End Role="tb_catalog" EntitySet="tb_catalog" />
             <End Role="tb_catalog_product" EntitySet="tb_catalog_product" />
           </AssociationSet>
-          <AssociationSet Name="FK__tb_catalo__produ__6A30C649" Association="Self.FK__tb_catalo__produ__6A30C649">
+          <AssociationSet Name="FK__tb_catalo__produ__5AEE82B9" Association="Self.FK__tb_catalo__produ__5AEE82B9">
             <End Role="tb_product" EntitySet="tb_product" />
             <End Role="tb_catalog_product" EntitySet="tb_catalog_product" />
           </AssociationSet>
-          <AssociationSet Name="FK__tb_produc__cart___70DDC3D8" Association="Self.FK__tb_produc__cart___70DDC3D8">
+          <AssociationSet Name="FK__tb_produc__cart___619B8048" Association="Self.FK__tb_produc__cart___619B8048">
             <End Role="tb_cart" EntitySet="tb_cart" />
             <End Role="tb_product" EntitySet="tb_product" />
           </AssociationSet>
-          <AssociationSet Name="FK__tb_produc__colle__6EF57B66" Association="Self.FK__tb_produc__colle__6EF57B66">
+          <AssociationSet Name="FK__tb_produc__colle__5FB337D6" Association="Self.FK__tb_produc__colle__5FB337D6">
             <End Role="tb_collection" EntitySet="tb_collection" />
             <End Role="tb_product" EntitySet="tb_product" />
           </AssociationSet>
-          <AssociationSet Name="FK__tb_produc__size___6FE99F9F" Association="Self.FK__tb_produc__size___6FE99F9F">
+          <AssociationSet Name="FK__tb_produc__size___60A75C0F" Association="Self.FK__tb_produc__size___60A75C0F">
             <End Role="tb_size" EntitySet="tb_size" />
             <End Role="tb_product" EntitySet="tb_product" />
           </AssociationSet>
-          <AssociationSet Name="FK__tb_review__produ__6C190EBB" Association="Self.FK__tb_review__produ__6C190EBB">
+          <AssociationSet Name="FK__tb_review__produ__5CD6CB2B" Association="Self.FK__tb_review__produ__5CD6CB2B">
             <End Role="tb_product" EntitySet="tb_product" />
             <End Role="tb_review" EntitySet="tb_review" />
           </AssociationSet>
-          <AssociationSet Name="FK__tb_tag_bl__blog___6754599E" Association="Self.FK__tb_tag_bl__blog___6754599E">
+          <AssociationSet Name="FK__tb_tag_bl__blog___5812160E" Association="Self.FK__tb_tag_bl__blog___5812160E">
             <End Role="tb_blog" EntitySet="tb_blog" />
             <End Role="tb_tag_blog" EntitySet="tb_tag_blog" />
           </AssociationSet>
-          <AssociationSet Name="FK__tb_tag_bl__tag_i__66603565" Association="Self.FK__tb_tag_bl__tag_i__66603565">
+          <AssociationSet Name="FK__tb_tag_bl__tag_i__571DF1D5" Association="Self.FK__tb_tag_bl__tag_i__571DF1D5">
             <End Role="tb_tag" EntitySet="tb_tag" />
             <End Role="tb_tag_blog" EntitySet="tb_tag_blog" />
           </AssociationSet>
-          <AssociationSet Name="FK__tb_u_addr__user___72C60C4A" Association="Self.FK__tb_u_addr__user___72C60C4A">
+          <AssociationSet Name="FK__tb_u_addr__user___6383C8BA" Association="Self.FK__tb_u_addr__user___6383C8BA">
             <End Role="tb_user" EntitySet="tb_user" />
             <End Role="tb_u_address" EntitySet="tb_u_address" />
           </AssociationSet>
-          <AssociationSet Name="FK__tb_user__address__6D0D32F4" Association="Self.FK__tb_user__address__6D0D32F4">
+          <AssociationSet Name="FK__tb_user__address__5DCAEF64" Association="Self.FK__tb_user__address__5DCAEF64">
             <End Role="tb_u_address" EntitySet="tb_u_address" />
             <End Role="tb_user" EntitySet="tb_user" />
           </AssociationSet>
-          <AssociationSet Name="FK__tb_user__role_id__6E01572D" Association="Self.FK__tb_user__role_id__6E01572D">
+          <AssociationSet Name="FK__tb_user__role_id__5EBF139D" Association="Self.FK__tb_user__role_id__5EBF139D">
             <End Role="tb_role" EntitySet="tb_role" />
             <End Role="tb_user" EntitySet="tb_user" />
           </AssociationSet>
@@ -407,7 +435,7 @@
           <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="user_id" Type="Int32" />
-          <NavigationProperty Name="tb_user" Relationship="Self.FK__tb_blog__user_id__68487DD7" FromRole="tb_blog" ToRole="tb_user" />
+          <NavigationProperty Name="tb_user" Relationship="Self.FK__tb_blog__user_id__59063A47" FromRole="tb_blog" ToRole="tb_user" />
           <NavigationProperty Name="tb_tag" Relationship="Self.tb_tag_blog" FromRole="tb_blog" ToRole="tb_tag" />
         </EntityType>
         <EntityType Name="tb_cart">
@@ -416,9 +444,20 @@
           </Key>
           <Property Name="cart_id" Type="Int32" Nullable="false" />
           <Property Name="user_id" Type="Int32" />
+          <Property Name="status_id" Type="Int32" />
           <Property Name="price" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="tb_user" Relationship="Self.FK__tb_cart__user_id__6B24EA82" FromRole="tb_cart" ToRole="tb_user" />
-          <NavigationProperty Name="tb_product" Relationship="Self.FK__tb_produc__cart___70DDC3D8" FromRole="tb_cart" ToRole="tb_product" />
+          <NavigationProperty Name="tb_cart_status" Relationship="Self.FK__tb_cart__status___628FA481" FromRole="tb_cart" ToRole="tb_cart_status" />
+          <NavigationProperty Name="tb_user" Relationship="Self.FK__tb_cart__user_id__5BE2A6F2" FromRole="tb_cart" ToRole="tb_user" />
+          <NavigationProperty Name="tb_product" Relationship="Self.FK__tb_produc__cart___619B8048" FromRole="tb_cart" ToRole="tb_product" />
+        </EntityType>
+        <EntityType Name="tb_cart_status">
+          <Key>
+            <PropertyRef Name="status_id" />
+          </Key>
+          <Property Name="status_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="icon" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_cart" Relationship="Self.FK__tb_cart__status___628FA481" FromRole="tb_cart_status" ToRole="tb_cart" />
         </EntityType>
         <EntityType Name="tb_catalog">
           <Key>
@@ -435,7 +474,7 @@
           <Property Name="collection_id" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="tb_product" Relationship="Self.FK__tb_produc__colle__6EF57B66" FromRole="tb_collection" ToRole="tb_product" />
+          <NavigationProperty Name="tb_product" Relationship="Self.FK__tb_produc__colle__5FB337D6" FromRole="tb_collection" ToRole="tb_product" />
         </EntityType>
         <EntityType Name="tb_product">
           <Key>
@@ -451,10 +490,10 @@
           <Property Name="size_id" Type="Int32" />
           <Property Name="cart_id" Type="Int32" />
           <Property Name="collection_id" Type="Int32" />
-          <NavigationProperty Name="tb_cart" Relationship="Self.FK__tb_produc__cart___70DDC3D8" FromRole="tb_product" ToRole="tb_cart" />
-          <NavigationProperty Name="tb_collection" Relationship="Self.FK__tb_produc__colle__6EF57B66" FromRole="tb_product" ToRole="tb_collection" />
-          <NavigationProperty Name="tb_size" Relationship="Self.FK__tb_produc__size___6FE99F9F" FromRole="tb_product" ToRole="tb_size" />
-          <NavigationProperty Name="tb_review" Relationship="Self.FK__tb_review__produ__6C190EBB" FromRole="tb_product" ToRole="tb_review" />
+          <NavigationProperty Name="tb_cart" Relationship="Self.FK__tb_produc__cart___619B8048" FromRole="tb_product" ToRole="tb_cart" />
+          <NavigationProperty Name="tb_collection" Relationship="Self.FK__tb_produc__colle__5FB337D6" FromRole="tb_product" ToRole="tb_collection" />
+          <NavigationProperty Name="tb_size" Relationship="Self.FK__tb_produc__size___60A75C0F" FromRole="tb_product" ToRole="tb_size" />
+          <NavigationProperty Name="tb_review" Relationship="Self.FK__tb_review__produ__5CD6CB2B" FromRole="tb_product" ToRole="tb_review" />
           <NavigationProperty Name="tb_catalog" Relationship="Self.tb_catalog_product" FromRole="tb_product" ToRole="tb_catalog" />
         </EntityType>
         <EntityType Name="tb_review">
@@ -468,7 +507,7 @@
           <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="body" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="rating" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="tb_product" Relationship="Self.FK__tb_review__produ__6C190EBB" FromRole="tb_review" ToRole="tb_product" />
+          <NavigationProperty Name="tb_product" Relationship="Self.FK__tb_review__produ__5CD6CB2B" FromRole="tb_review" ToRole="tb_product" />
         </EntityType>
         <EntityType Name="tb_role">
           <Key>
@@ -476,7 +515,7 @@
           </Key>
           <Property Name="role_id" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="tb_user" Relationship="Self.FK__tb_user__role_id__6E01572D" FromRole="tb_role" ToRole="tb_user" />
+          <NavigationProperty Name="tb_user" Relationship="Self.FK__tb_user__role_id__5EBF139D" FromRole="tb_role" ToRole="tb_user" />
         </EntityType>
         <EntityType Name="tb_size">
           <Key>
@@ -484,7 +523,7 @@
           </Key>
           <Property Name="size_id" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="tb_product" Relationship="Self.FK__tb_produc__size___6FE99F9F" FromRole="tb_size" ToRole="tb_product" />
+          <NavigationProperty Name="tb_product" Relationship="Self.FK__tb_produc__size___60A75C0F" FromRole="tb_size" ToRole="tb_product" />
         </EntityType>
         <EntityType Name="tb_tag">
           <Key>
@@ -503,8 +542,8 @@
           <Property Name="phone_number" Type="Int32" />
           <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="country" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="tb_user" Relationship="Self.FK__tb_u_addr__user___72C60C4A" FromRole="tb_u_address" ToRole="tb_user" />
-          <NavigationProperty Name="tb_user1" Relationship="Self.FK__tb_user__address__6D0D32F4" FromRole="tb_u_address" ToRole="tb_user" />
+          <NavigationProperty Name="tb_user" Relationship="Self.FK__tb_u_addr__user___6383C8BA" FromRole="tb_u_address" ToRole="tb_user" />
+          <NavigationProperty Name="tb_user1" Relationship="Self.FK__tb_user__address__5DCAEF64" FromRole="tb_u_address" ToRole="tb_user" />
         </EntityType>
         <EntityType Name="tb_user">
           <Key>
@@ -516,13 +555,13 @@
           <Property Name="fullname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="address_id" Type="Int32" />
           <Property Name="role_id" Type="Int32" />
-          <NavigationProperty Name="tb_blog" Relationship="Self.FK__tb_blog__user_id__68487DD7" FromRole="tb_user" ToRole="tb_blog" />
-          <NavigationProperty Name="tb_cart" Relationship="Self.FK__tb_cart__user_id__6B24EA82" FromRole="tb_user" ToRole="tb_cart" />
-          <NavigationProperty Name="tb_role" Relationship="Self.FK__tb_user__role_id__6E01572D" FromRole="tb_user" ToRole="tb_role" />
-          <NavigationProperty Name="tb_u_address" Relationship="Self.FK__tb_u_addr__user___72C60C4A" FromRole="tb_user" ToRole="tb_u_address" />
-          <NavigationProperty Name="tb_u_address1" Relationship="Self.FK__tb_user__address__6D0D32F4" FromRole="tb_user" ToRole="tb_u_address" />
+          <NavigationProperty Name="tb_blog" Relationship="Self.FK__tb_blog__user_id__59063A47" FromRole="tb_user" ToRole="tb_blog" />
+          <NavigationProperty Name="tb_cart" Relationship="Self.FK__tb_cart__user_id__5BE2A6F2" FromRole="tb_user" ToRole="tb_cart" />
+          <NavigationProperty Name="tb_role" Relationship="Self.FK__tb_user__role_id__5EBF139D" FromRole="tb_user" ToRole="tb_role" />
+          <NavigationProperty Name="tb_u_address" Relationship="Self.FK__tb_u_addr__user___6383C8BA" FromRole="tb_user" ToRole="tb_u_address" />
+          <NavigationProperty Name="tb_u_address1" Relationship="Self.FK__tb_user__address__5DCAEF64" FromRole="tb_user" ToRole="tb_u_address" />
         </EntityType>
-        <Association Name="FK__tb_blog__user_id__68487DD7">
+        <Association Name="FK__tb_blog__user_id__59063A47">
           <End Role="tb_user" Type="Self.tb_user" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -536,7 +575,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tb_cart__user_id__6B24EA82">
+        <Association Name="FK__tb_cart__status___628FA481">
+          <End Role="tb_cart_status" Type="Self.tb_cart_status" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_cart" Type="Self.tb_cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_cart_status">
+              <PropertyRef Name="status_id" />
+            </Principal>
+            <Dependent Role="tb_cart">
+              <PropertyRef Name="status_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_cart__user_id__5BE2A6F2">
           <End Role="tb_user" Type="Self.tb_user" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -550,7 +603,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tb_produc__cart___70DDC3D8">
+        <Association Name="FK__tb_produc__cart___619B8048">
           <End Role="tb_cart" Type="Self.tb_cart" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -564,7 +617,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tb_produc__colle__6EF57B66">
+        <Association Name="FK__tb_produc__colle__5FB337D6">
           <End Role="tb_collection" Type="Self.tb_collection" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -578,7 +631,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tb_produc__size___6FE99F9F">
+        <Association Name="FK__tb_produc__size___60A75C0F">
           <End Role="tb_size" Type="Self.tb_size" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -592,7 +645,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tb_review__produ__6C190EBB">
+        <Association Name="FK__tb_review__produ__5CD6CB2B">
           <End Role="tb_product" Type="Self.tb_product" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -606,7 +659,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tb_user__role_id__6E01572D">
+        <Association Name="FK__tb_user__role_id__5EBF139D">
           <End Role="tb_role" Type="Self.tb_role" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -620,7 +673,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tb_u_addr__user___72C60C4A">
+        <Association Name="FK__tb_u_addr__user___6383C8BA">
           <End Role="tb_user" Type="Self.tb_user" Multiplicity="0..1" />
           <End Role="tb_u_address" Type="Self.tb_u_address" Multiplicity="*" />
           <ReferentialConstraint>
@@ -632,7 +685,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tb_user__address__6D0D32F4">
+        <Association Name="FK__tb_user__address__5DCAEF64">
           <End Role="tb_u_address" Type="Self.tb_u_address" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -658,6 +711,7 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="tb_blog" EntityType="Self.tb_blog" />
           <EntitySet Name="tb_cart" EntityType="Self.tb_cart" />
+          <EntitySet Name="tb_cart_status" EntityType="Self.tb_cart_status" />
           <EntitySet Name="tb_catalog" EntityType="Self.tb_catalog" />
           <EntitySet Name="tb_collection" EntityType="Self.tb_collection" />
           <EntitySet Name="tb_product" EntityType="Self.tb_product" />
@@ -667,39 +721,43 @@
           <EntitySet Name="tb_tag" EntityType="Self.tb_tag" />
           <EntitySet Name="tb_u_address" EntityType="Self.tb_u_address" />
           <EntitySet Name="tb_user" EntityType="Self.tb_user" />
-          <AssociationSet Name="FK__tb_blog__user_id__68487DD7" Association="Self.FK__tb_blog__user_id__68487DD7">
+          <AssociationSet Name="FK__tb_blog__user_id__59063A47" Association="Self.FK__tb_blog__user_id__59063A47">
             <End Role="tb_user" EntitySet="tb_user" />
             <End Role="tb_blog" EntitySet="tb_blog" />
           </AssociationSet>
-          <AssociationSet Name="FK__tb_cart__user_id__6B24EA82" Association="Self.FK__tb_cart__user_id__6B24EA82">
+          <AssociationSet Name="FK__tb_cart__status___628FA481" Association="Self.FK__tb_cart__status___628FA481">
+            <End Role="tb_cart_status" EntitySet="tb_cart_status" />
+            <End Role="tb_cart" EntitySet="tb_cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_cart__user_id__5BE2A6F2" Association="Self.FK__tb_cart__user_id__5BE2A6F2">
             <End Role="tb_user" EntitySet="tb_user" />
             <End Role="tb_cart" EntitySet="tb_cart" />
           </AssociationSet>
-          <AssociationSet Name="FK__tb_produc__cart___70DDC3D8" Association="Self.FK__tb_produc__cart___70DDC3D8">
+          <AssociationSet Name="FK__tb_produc__cart___619B8048" Association="Self.FK__tb_produc__cart___619B8048">
             <End Role="tb_cart" EntitySet="tb_cart" />
             <End Role="tb_product" EntitySet="tb_product" />
           </AssociationSet>
-          <AssociationSet Name="FK__tb_produc__colle__6EF57B66" Association="Self.FK__tb_produc__colle__6EF57B66">
+          <AssociationSet Name="FK__tb_produc__colle__5FB337D6" Association="Self.FK__tb_produc__colle__5FB337D6">
             <End Role="tb_collection" EntitySet="tb_collection" />
             <End Role="tb_product" EntitySet="tb_product" />
           </AssociationSet>
-          <AssociationSet Name="FK__tb_produc__size___6FE99F9F" Association="Self.FK__tb_produc__size___6FE99F9F">
+          <AssociationSet Name="FK__tb_produc__size___60A75C0F" Association="Self.FK__tb_produc__size___60A75C0F">
             <End Role="tb_size" EntitySet="tb_size" />
             <End Role="tb_product" EntitySet="tb_product" />
           </AssociationSet>
-          <AssociationSet Name="FK__tb_review__produ__6C190EBB" Association="Self.FK__tb_review__produ__6C190EBB">
+          <AssociationSet Name="FK__tb_review__produ__5CD6CB2B" Association="Self.FK__tb_review__produ__5CD6CB2B">
             <End Role="tb_product" EntitySet="tb_product" />
             <End Role="tb_review" EntitySet="tb_review" />
           </AssociationSet>
-          <AssociationSet Name="FK__tb_user__role_id__6E01572D" Association="Self.FK__tb_user__role_id__6E01572D">
+          <AssociationSet Name="FK__tb_user__role_id__5EBF139D" Association="Self.FK__tb_user__role_id__5EBF139D">
             <End Role="tb_role" EntitySet="tb_role" />
             <End Role="tb_user" EntitySet="tb_user" />
           </AssociationSet>
-          <AssociationSet Name="FK__tb_u_addr__user___72C60C4A" Association="Self.FK__tb_u_addr__user___72C60C4A">
+          <AssociationSet Name="FK__tb_u_addr__user___6383C8BA" Association="Self.FK__tb_u_addr__user___6383C8BA">
             <End Role="tb_user" EntitySet="tb_user" />
             <End Role="tb_u_address" EntitySet="tb_u_address" />
           </AssociationSet>
-          <AssociationSet Name="FK__tb_user__address__6D0D32F4" Association="Self.FK__tb_user__address__6D0D32F4">
+          <AssociationSet Name="FK__tb_user__address__5DCAEF64" Association="Self.FK__tb_user__address__5DCAEF64">
             <End Role="tb_u_address" EntitySet="tb_u_address" />
             <End Role="tb_user" EntitySet="tb_user" />
           </AssociationSet>
@@ -746,7 +804,17 @@
               <MappingFragment StoreEntitySet="tb_cart">
                 <ScalarProperty Name="cart_id" ColumnName="cart_id" />
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="status_id" ColumnName="status_id" />
                 <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_cart_status">
+            <EntityTypeMapping TypeName="velaMaryModel.tb_cart_status">
+              <MappingFragment StoreEntitySet="tb_cart_status">
+                <ScalarProperty Name="status_id" ColumnName="status_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="icon" ColumnName="icon" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
