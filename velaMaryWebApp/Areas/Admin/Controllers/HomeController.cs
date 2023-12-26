@@ -9,19 +9,21 @@ namespace velaMaryWebApp.Areas.Admin.Controllers
 {
     public class HomeController : Controller
     {
-        //private velaMaryEntities db;
-        
-
-        //HomeController()
-        //{
-        //    //Lệnh kết nối db
-        //    db = new velaMaryEntities();
-        //}
-        // GET: Admin/Home
+        //GET ADMIN/HOME/Index
         public ActionResult Index()
         { 
-            //List<tb_catalog> catalog = db.tb_catalog.ToList();
+            velaMaryEntities db = new velaMaryEntities();
+            //Tính tổng tiền earned
+            ViewBag.totalEarned = (from item in db.tb_cart
+                               where item.status_id == 1 
+                               select item.price).Sum();
+            //Tính pending order
+            ViewBag.pendingOrder = (from item in db.tb_cart
+                        where item.status_id == 2
+                        select item).Count();
             return View();
         }
+
+
     }
 }

@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="velaMaryModelStoreContainer" CdmEntityContainer="velaMaryEntities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="velaMaryModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_blog">
+      <EntityTypeMapping TypeName="velaMaryModel.tb_blog">
+        <MappingFragment StoreEntitySet="tb_blog">
+          <ScalarProperty Name="blog_id" ColumnName="blog_id" />
+          <ScalarProperty Name="imange" ColumnName="imange" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_cart">
+      <EntityTypeMapping TypeName="velaMaryModel.tb_cart">
+        <MappingFragment StoreEntitySet="tb_cart">
+          <ScalarProperty Name="cart_id" ColumnName="cart_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="status_id" ColumnName="status_id" />
+          <ScalarProperty Name="price" ColumnName="price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_cart_status">
+      <EntityTypeMapping TypeName="velaMaryModel.tb_cart_status">
+        <MappingFragment StoreEntitySet="tb_cart_status">
+          <ScalarProperty Name="status_id" ColumnName="status_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="icon" ColumnName="icon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_catalog">
+      <EntityTypeMapping TypeName="velaMaryModel.tb_catalog">
+        <MappingFragment StoreEntitySet="tb_catalog">
+          <ScalarProperty Name="catalog_id" ColumnName="catalog_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_collection">
+      <EntityTypeMapping TypeName="velaMaryModel.tb_collection">
+        <MappingFragment StoreEntitySet="tb_collection">
+          <ScalarProperty Name="collection_id" ColumnName="collection_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="image" ColumnName="image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_product">
+      <EntityTypeMapping TypeName="velaMaryModel.tb_product">
+        <MappingFragment StoreEntitySet="tb_product">
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="details" ColumnName="details" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="sizechart" ColumnName="sizechart" />
+          <ScalarProperty Name="size_id" ColumnName="size_id" />
+          <ScalarProperty Name="cart_id" ColumnName="cart_id" />
+          <ScalarProperty Name="collection_id" ColumnName="collection_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_review">
+      <EntityTypeMapping TypeName="velaMaryModel.tb_review">
+        <MappingFragment StoreEntitySet="tb_review">
+          <ScalarProperty Name="review_id" ColumnName="review_id" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="reviewer_name" ColumnName="reviewer_name" />
+          <ScalarProperty Name="reviewer_email" ColumnName="reviewer_email" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="body" ColumnName="body" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_role">
+      <EntityTypeMapping TypeName="velaMaryModel.tb_role">
+        <MappingFragment StoreEntitySet="tb_role">
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_size">
+      <EntityTypeMapping TypeName="velaMaryModel.tb_size">
+        <MappingFragment StoreEntitySet="tb_size">
+          <ScalarProperty Name="size_id" ColumnName="size_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_tag">
+      <EntityTypeMapping TypeName="velaMaryModel.tb_tag">
+        <MappingFragment StoreEntitySet="tb_tag">
+          <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_u_address">
+      <EntityTypeMapping TypeName="velaMaryModel.tb_u_address">
+        <MappingFragment StoreEntitySet="tb_u_address">
+          <ScalarProperty Name="address_id" ColumnName="address_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="country" ColumnName="country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_user">
+      <EntityTypeMapping TypeName="velaMaryModel.tb_user">
+        <MappingFragment StoreEntitySet="tb_user">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="fullname" ColumnName="fullname" />
+          <ScalarProperty Name="address_id" ColumnName="address_id" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="tb_catalog_product" TypeName="velaMaryModel.tb_catalog_product" StoreEntitySet="tb_catalog_product">
+      <EndProperty Name="tb_catalog">
+        <ScalarProperty Name="catalog_id" ColumnName="catalog_id" />
+      </EndProperty>
+      <EndProperty Name="tb_product">
+        <ScalarProperty Name="product_id" ColumnName="product_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="tb_tag_blog" TypeName="velaMaryModel.tb_tag_blog" StoreEntitySet="tb_tag_blog">
+      <EndProperty Name="tb_blog">
+        <ScalarProperty Name="blog_id" ColumnName="blog_id" />
+      </EndProperty>
+      <EndProperty Name="tb_tag">
+        <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
