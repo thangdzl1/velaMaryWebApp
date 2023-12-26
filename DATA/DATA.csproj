@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{63C6D809-EF8E-4D5A-80BE-51A7D4918A94}</ProjectGuid>
+    <ProjectGuid>{C89C0E30-9889-409A-B358-325CF0B39775}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DATA</RootNamespace>
@@ -43,6 +43,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,15 +53,88 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="MapCart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Entity\sysdiagram.cs">
+      <DependentUpon>velaMaryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tb_blog.cs">
+      <DependentUpon>velaMaryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tb_cart.cs">
+      <DependentUpon>velaMaryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tb_cart_status.cs">
+      <DependentUpon>velaMaryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tb_catalog.cs">
+      <DependentUpon>velaMaryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tb_collection.cs">
+      <DependentUpon>velaMaryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tb_product.cs">
+      <DependentUpon>velaMaryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tb_review.cs">
+      <DependentUpon>velaMaryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tb_role.cs">
+      <DependentUpon>velaMaryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tb_size.cs">
+      <DependentUpon>velaMaryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tb_tag.cs">
+      <DependentUpon>velaMaryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tb_user.cs">
+      <DependentUpon>velaMaryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tb_u_address.cs">
+      <DependentUpon>velaMaryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\velaMaryModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>velaMaryModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\velaMaryModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>velaMaryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\velaMaryModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>velaMaryModel.edmx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <EntityDeploy Include="Entity\velaMaryModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>velaMaryModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entity\velaMaryModel.edmx.diagram">
+      <DependentUpon>velaMaryModel.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entity\" />
+    <Content Include="Entity\velaMaryModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>velaMaryModel.edmx</DependentUpon>
+      <LastGenOutput>velaMaryModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\velaMaryModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>velaMaryModel.edmx</DependentUpon>
+      <LastGenOutput>velaMaryModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

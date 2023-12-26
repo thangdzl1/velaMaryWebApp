@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="52d9de3ce71846ff931d9c4d8d15194c" Name="Diagram1">
+        <EntityTypeShape EntityType="velaMaryModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="velaMaryModel.tb_blog" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="velaMaryModel.tb_cart" Width="1.5" PointX="8.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="velaMaryModel.tb_cart_status" Width="1.5" PointX="6" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="velaMaryModel.tb_catalog" Width="1.5" PointX="8.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="velaMaryModel.tb_collection" Width="1.5" PointX="8.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="velaMaryModel.tb_product" Width="1.5" PointX="10.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="velaMaryModel.tb_review" Width="1.5" PointX="12.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="velaMaryModel.tb_role" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="velaMaryModel.tb_size" Width="1.5" PointX="8.25" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="velaMaryModel.tb_tag" Width="1.5" PointX="7.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="velaMaryModel.tb_u_address" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="velaMaryModel.tb_user" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <AssociationConnector Association="velaMaryModel.FK__tb_blog__user_id__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="velaMaryModel.FK__tb_cart__status___628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="velaMaryModel.FK__tb_cart__user_id__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="velaMaryModel.FK__tb_produc__cart___619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="velaMaryModel.FK__tb_produc__colle__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="velaMaryModel.FK__tb_produc__size___60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="velaMaryModel.FK__tb_review__produ__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="velaMaryModel.FK__tb_user__role_id__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="velaMaryModel.FK__tb_u_addr__user___6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="velaMaryModel.FK__tb_user__address__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="velaMaryModel.tb_catalog_product" ManuallyRouted="false" />
+        <AssociationConnector Association="velaMaryModel.tb_tag_blog" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

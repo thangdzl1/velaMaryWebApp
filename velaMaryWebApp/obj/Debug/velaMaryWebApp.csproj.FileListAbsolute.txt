@@ -214,3 +214,6 @@ D:\Work Space\C# Source\velaMary\velaMaryWebApp\velaMaryWebApp\obj\Debug\velaMar
 D:\Work Space\C# Source\velaMary\velaMaryWebApp\velaMaryWebApp\obj\Debug\velaMaryWebApp.csproj.CopyComplete
 D:\Work Space\C# Source\velaMary\velaMaryWebApp\velaMaryWebApp\obj\Debug\velaMaryWebApp.dll
 D:\Work Space\C# Source\velaMary\velaMaryWebApp\velaMaryWebApp\obj\Debug\velaMaryWebApp.pdb
+D:\Work Space\C# Source\velaMary\velaMaryWebApp\velaMaryWebApp\bin\DATA.dll
+D:\Work Space\C# Source\velaMary\velaMaryWebApp\velaMaryWebApp\bin\DATA.pdb
+D:\Work Space\C# Source\velaMary\velaMaryWebApp\velaMaryWebApp\bin\DATA.dll.config

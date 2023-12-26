@@ -1,0 +1,953 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="velaMaryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tb_blog">
+          <Key>
+            <PropertyRef Name="blog_id" />
+          </Key>
+          <Property Name="blog_id" Type="int" Nullable="false" />
+          <Property Name="imange" Type="varchar" MaxLength="255" />
+          <Property Name="title" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="description" Type="text" Nullable="false" />
+          <Property Name="content" Type="text" Nullable="false" />
+          <Property Name="user_id" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_cart">
+          <Key>
+            <PropertyRef Name="cart_id" />
+          </Key>
+          <Property Name="cart_id" Type="int" Nullable="false" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="status_id" Type="int" />
+          <Property Name="price" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_cart_status">
+          <Key>
+            <PropertyRef Name="status_id" />
+          </Key>
+          <Property Name="status_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="icon" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="tb_catalog">
+          <Key>
+            <PropertyRef Name="catalog_id" />
+          </Key>
+          <Property Name="catalog_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="tb_catalog_product">
+          <Key>
+            <PropertyRef Name="catalog_id" />
+            <PropertyRef Name="product_id" />
+          </Key>
+          <Property Name="catalog_id" Type="int" Nullable="false" />
+          <Property Name="product_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_collection">
+          <Key>
+            <PropertyRef Name="collection_id" />
+          </Key>
+          <Property Name="collection_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="image" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="tb_product">
+          <Key>
+            <PropertyRef Name="product_id" />
+          </Key>
+          <Property Name="product_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="details" Type="text" Nullable="false" />
+          <Property Name="price" Type="int" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="255" />
+          <Property Name="sizechart" Type="varchar" MaxLength="255" />
+          <Property Name="size_id" Type="int" />
+          <Property Name="cart_id" Type="int" />
+          <Property Name="collection_id" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_review">
+          <Key>
+            <PropertyRef Name="review_id" />
+          </Key>
+          <Property Name="review_id" Type="int" Nullable="false" />
+          <Property Name="product_id" Type="int" />
+          <Property Name="reviewer_name" Type="text" />
+          <Property Name="reviewer_email" Type="text" />
+          <Property Name="title" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="body" Type="text" Nullable="false" />
+          <Property Name="rating" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_role">
+          <Key>
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="role_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="tb_size">
+          <Key>
+            <PropertyRef Name="size_id" />
+          </Key>
+          <Property Name="size_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="tb_tag">
+          <Key>
+            <PropertyRef Name="tag_id" />
+          </Key>
+          <Property Name="tag_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="tb_tag_blog">
+          <Key>
+            <PropertyRef Name="tag_id" />
+            <PropertyRef Name="blog_id" />
+          </Key>
+          <Property Name="tag_id" Type="int" Nullable="false" />
+          <Property Name="blog_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_u_address">
+          <Key>
+            <PropertyRef Name="address_id" />
+          </Key>
+          <Property Name="address_id" Type="int" Nullable="false" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="phone_number" Type="int" />
+          <Property Name="address" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="country" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_user">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
+          <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="fullname" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="address_id" Type="int" />
+          <Property Name="role_id" Type="int" />
+        </EntityType>
+        <Association Name="FK__tb_blog__user_id__59063A47">
+          <End Role="tb_user" Type="Self.tb_user" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_blog" Type="Self.tb_blog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="tb_blog">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_cart__status___628FA481">
+          <End Role="tb_cart_status" Type="Self.tb_cart_status" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_cart" Type="Self.tb_cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_cart_status">
+              <PropertyRef Name="status_id" />
+            </Principal>
+            <Dependent Role="tb_cart">
+              <PropertyRef Name="status_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_cart__user_id__5BE2A6F2">
+          <End Role="tb_user" Type="Self.tb_user" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_cart" Type="Self.tb_cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="tb_cart">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_catalo__catal__59FA5E80">
+          <End Role="tb_catalog" Type="Self.tb_catalog" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_catalog_product" Type="Self.tb_catalog_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_catalog">
+              <PropertyRef Name="catalog_id" />
+            </Principal>
+            <Dependent Role="tb_catalog_product">
+              <PropertyRef Name="catalog_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_catalo__produ__5AEE82B9">
+          <End Role="tb_product" Type="Self.tb_product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_catalog_product" Type="Self.tb_catalog_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_product">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="tb_catalog_product">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_produc__cart___619B8048">
+          <End Role="tb_cart" Type="Self.tb_cart" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_product" Type="Self.tb_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_cart">
+              <PropertyRef Name="cart_id" />
+            </Principal>
+            <Dependent Role="tb_product">
+              <PropertyRef Name="cart_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_produc__colle__5FB337D6">
+          <End Role="tb_collection" Type="Self.tb_collection" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_product" Type="Self.tb_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_collection">
+              <PropertyRef Name="collection_id" />
+            </Principal>
+            <Dependent Role="tb_product">
+              <PropertyRef Name="collection_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_produc__size___60A75C0F">
+          <End Role="tb_size" Type="Self.tb_size" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_product" Type="Self.tb_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_size">
+              <PropertyRef Name="size_id" />
+            </Principal>
+            <Dependent Role="tb_product">
+              <PropertyRef Name="size_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_review__produ__5CD6CB2B">
+          <End Role="tb_product" Type="Self.tb_product" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_review" Type="Self.tb_review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_product">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="tb_review">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_tag_bl__blog___5812160E">
+          <End Role="tb_blog" Type="Self.tb_blog" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_tag_blog" Type="Self.tb_tag_blog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_blog">
+              <PropertyRef Name="blog_id" />
+            </Principal>
+            <Dependent Role="tb_tag_blog">
+              <PropertyRef Name="blog_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_tag_bl__tag_i__571DF1D5">
+          <End Role="tb_tag" Type="Self.tb_tag" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_tag_blog" Type="Self.tb_tag_blog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_tag">
+              <PropertyRef Name="tag_id" />
+            </Principal>
+            <Dependent Role="tb_tag_blog">
+              <PropertyRef Name="tag_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_u_addr__user___6383C8BA">
+          <End Role="tb_user" Type="Self.tb_user" Multiplicity="0..1" />
+          <End Role="tb_u_address" Type="Self.tb_u_address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="tb_u_address">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_user__address__5DCAEF64">
+          <End Role="tb_u_address" Type="Self.tb_u_address" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_user" Type="Self.tb_user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_u_address">
+              <PropertyRef Name="address_id" />
+            </Principal>
+            <Dependent Role="tb_user">
+              <PropertyRef Name="address_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_user__role_id__5EBF139D">
+          <End Role="tb_role" Type="Self.tb_role" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_user" Type="Self.tb_user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_role">
+              <PropertyRef Name="role_id" />
+            </Principal>
+            <Dependent Role="tb_user">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="velaMaryModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_blog" EntityType="Self.tb_blog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_cart" EntityType="Self.tb_cart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_cart_status" EntityType="Self.tb_cart_status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_catalog" EntityType="Self.tb_catalog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_catalog_product" EntityType="Self.tb_catalog_product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_collection" EntityType="Self.tb_collection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_product" EntityType="Self.tb_product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_review" EntityType="Self.tb_review" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_role" EntityType="Self.tb_role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_size" EntityType="Self.tb_size" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_tag" EntityType="Self.tb_tag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_tag_blog" EntityType="Self.tb_tag_blog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_u_address" EntityType="Self.tb_u_address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_user" EntityType="Self.tb_user" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__tb_blog__user_id__59063A47" Association="Self.FK__tb_blog__user_id__59063A47">
+            <End Role="tb_user" EntitySet="tb_user" />
+            <End Role="tb_blog" EntitySet="tb_blog" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_cart__status___628FA481" Association="Self.FK__tb_cart__status___628FA481">
+            <End Role="tb_cart_status" EntitySet="tb_cart_status" />
+            <End Role="tb_cart" EntitySet="tb_cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_cart__user_id__5BE2A6F2" Association="Self.FK__tb_cart__user_id__5BE2A6F2">
+            <End Role="tb_user" EntitySet="tb_user" />
+            <End Role="tb_cart" EntitySet="tb_cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_catalo__catal__59FA5E80" Association="Self.FK__tb_catalo__catal__59FA5E80">
+            <End Role="tb_catalog" EntitySet="tb_catalog" />
+            <End Role="tb_catalog_product" EntitySet="tb_catalog_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_catalo__produ__5AEE82B9" Association="Self.FK__tb_catalo__produ__5AEE82B9">
+            <End Role="tb_product" EntitySet="tb_product" />
+            <End Role="tb_catalog_product" EntitySet="tb_catalog_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_produc__cart___619B8048" Association="Self.FK__tb_produc__cart___619B8048">
+            <End Role="tb_cart" EntitySet="tb_cart" />
+            <End Role="tb_product" EntitySet="tb_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_produc__colle__5FB337D6" Association="Self.FK__tb_produc__colle__5FB337D6">
+            <End Role="tb_collection" EntitySet="tb_collection" />
+            <End Role="tb_product" EntitySet="tb_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_produc__size___60A75C0F" Association="Self.FK__tb_produc__size___60A75C0F">
+            <End Role="tb_size" EntitySet="tb_size" />
+            <End Role="tb_product" EntitySet="tb_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_review__produ__5CD6CB2B" Association="Self.FK__tb_review__produ__5CD6CB2B">
+            <End Role="tb_product" EntitySet="tb_product" />
+            <End Role="tb_review" EntitySet="tb_review" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_tag_bl__blog___5812160E" Association="Self.FK__tb_tag_bl__blog___5812160E">
+            <End Role="tb_blog" EntitySet="tb_blog" />
+            <End Role="tb_tag_blog" EntitySet="tb_tag_blog" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_tag_bl__tag_i__571DF1D5" Association="Self.FK__tb_tag_bl__tag_i__571DF1D5">
+            <End Role="tb_tag" EntitySet="tb_tag" />
+            <End Role="tb_tag_blog" EntitySet="tb_tag_blog" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_u_addr__user___6383C8BA" Association="Self.FK__tb_u_addr__user___6383C8BA">
+            <End Role="tb_user" EntitySet="tb_user" />
+            <End Role="tb_u_address" EntitySet="tb_u_address" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_user__address__5DCAEF64" Association="Self.FK__tb_user__address__5DCAEF64">
+            <End Role="tb_u_address" EntitySet="tb_u_address" />
+            <End Role="tb_user" EntitySet="tb_user" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_user__role_id__5EBF139D" Association="Self.FK__tb_user__role_id__5EBF139D">
+            <End Role="tb_role" EntitySet="tb_role" />
+            <End Role="tb_user" EntitySet="tb_user" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="velaMaryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tb_blog">
+          <Key>
+            <PropertyRef Name="blog_id" />
+          </Key>
+          <Property Name="blog_id" Type="Int32" Nullable="false" />
+          <Property Name="imange" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_id" Type="Int32" />
+          <NavigationProperty Name="tb_user" Relationship="Self.FK__tb_blog__user_id__59063A47" FromRole="tb_blog" ToRole="tb_user" />
+          <NavigationProperty Name="tb_tag" Relationship="Self.tb_tag_blog" FromRole="tb_blog" ToRole="tb_tag" />
+        </EntityType>
+        <EntityType Name="tb_cart">
+          <Key>
+            <PropertyRef Name="cart_id" />
+          </Key>
+          <Property Name="cart_id" Type="Int32" Nullable="false" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="status_id" Type="Int32" />
+          <Property Name="price" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tb_cart_status" Relationship="Self.FK__tb_cart__status___628FA481" FromRole="tb_cart" ToRole="tb_cart_status" />
+          <NavigationProperty Name="tb_user" Relationship="Self.FK__tb_cart__user_id__5BE2A6F2" FromRole="tb_cart" ToRole="tb_user" />
+          <NavigationProperty Name="tb_product" Relationship="Self.FK__tb_produc__cart___619B8048" FromRole="tb_cart" ToRole="tb_product" />
+        </EntityType>
+        <EntityType Name="tb_cart_status">
+          <Key>
+            <PropertyRef Name="status_id" />
+          </Key>
+          <Property Name="status_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="icon" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_cart" Relationship="Self.FK__tb_cart__status___628FA481" FromRole="tb_cart_status" ToRole="tb_cart" />
+        </EntityType>
+        <EntityType Name="tb_catalog">
+          <Key>
+            <PropertyRef Name="catalog_id" />
+          </Key>
+          <Property Name="catalog_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_product" Relationship="Self.tb_catalog_product" FromRole="tb_catalog" ToRole="tb_product" />
+        </EntityType>
+        <EntityType Name="tb_collection">
+          <Key>
+            <PropertyRef Name="collection_id" />
+          </Key>
+          <Property Name="collection_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_product" Relationship="Self.FK__tb_produc__colle__5FB337D6" FromRole="tb_collection" ToRole="tb_product" />
+        </EntityType>
+        <EntityType Name="tb_product">
+          <Key>
+            <PropertyRef Name="product_id" />
+          </Key>
+          <Property Name="product_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="price" Type="Int32" Nullable="false" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="sizechart" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="size_id" Type="Int32" />
+          <Property Name="cart_id" Type="Int32" />
+          <Property Name="collection_id" Type="Int32" />
+          <NavigationProperty Name="tb_cart" Relationship="Self.FK__tb_produc__cart___619B8048" FromRole="tb_product" ToRole="tb_cart" />
+          <NavigationProperty Name="tb_collection" Relationship="Self.FK__tb_produc__colle__5FB337D6" FromRole="tb_product" ToRole="tb_collection" />
+          <NavigationProperty Name="tb_size" Relationship="Self.FK__tb_produc__size___60A75C0F" FromRole="tb_product" ToRole="tb_size" />
+          <NavigationProperty Name="tb_review" Relationship="Self.FK__tb_review__produ__5CD6CB2B" FromRole="tb_product" ToRole="tb_review" />
+          <NavigationProperty Name="tb_catalog" Relationship="Self.tb_catalog_product" FromRole="tb_product" ToRole="tb_catalog" />
+        </EntityType>
+        <EntityType Name="tb_review">
+          <Key>
+            <PropertyRef Name="review_id" />
+          </Key>
+          <Property Name="review_id" Type="Int32" Nullable="false" />
+          <Property Name="product_id" Type="Int32" />
+          <Property Name="reviewer_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="reviewer_email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="body" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rating" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tb_product" Relationship="Self.FK__tb_review__produ__5CD6CB2B" FromRole="tb_review" ToRole="tb_product" />
+        </EntityType>
+        <EntityType Name="tb_role">
+          <Key>
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="role_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_user" Relationship="Self.FK__tb_user__role_id__5EBF139D" FromRole="tb_role" ToRole="tb_user" />
+        </EntityType>
+        <EntityType Name="tb_size">
+          <Key>
+            <PropertyRef Name="size_id" />
+          </Key>
+          <Property Name="size_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_product" Relationship="Self.FK__tb_produc__size___60A75C0F" FromRole="tb_size" ToRole="tb_product" />
+        </EntityType>
+        <EntityType Name="tb_tag">
+          <Key>
+            <PropertyRef Name="tag_id" />
+          </Key>
+          <Property Name="tag_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_blog" Relationship="Self.tb_tag_blog" FromRole="tb_tag" ToRole="tb_blog" />
+        </EntityType>
+        <EntityType Name="tb_u_address">
+          <Key>
+            <PropertyRef Name="address_id" />
+          </Key>
+          <Property Name="address_id" Type="Int32" Nullable="false" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="phone_number" Type="Int32" />
+          <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="country" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tb_user" Relationship="Self.FK__tb_u_addr__user___6383C8BA" FromRole="tb_u_address" ToRole="tb_user" />
+          <NavigationProperty Name="tb_user1" Relationship="Self.FK__tb_user__address__5DCAEF64" FromRole="tb_u_address" ToRole="tb_user" />
+        </EntityType>
+        <EntityType Name="tb_user">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fullname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address_id" Type="Int32" />
+          <Property Name="role_id" Type="Int32" />
+          <NavigationProperty Name="tb_blog" Relationship="Self.FK__tb_blog__user_id__59063A47" FromRole="tb_user" ToRole="tb_blog" />
+          <NavigationProperty Name="tb_cart" Relationship="Self.FK__tb_cart__user_id__5BE2A6F2" FromRole="tb_user" ToRole="tb_cart" />
+          <NavigationProperty Name="tb_role" Relationship="Self.FK__tb_user__role_id__5EBF139D" FromRole="tb_user" ToRole="tb_role" />
+          <NavigationProperty Name="tb_u_address" Relationship="Self.FK__tb_u_addr__user___6383C8BA" FromRole="tb_user" ToRole="tb_u_address" />
+          <NavigationProperty Name="tb_u_address1" Relationship="Self.FK__tb_user__address__5DCAEF64" FromRole="tb_user" ToRole="tb_u_address" />
+        </EntityType>
+        <Association Name="FK__tb_blog__user_id__59063A47">
+          <End Role="tb_user" Type="Self.tb_user" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_blog" Type="Self.tb_blog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="tb_blog">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_cart__status___628FA481">
+          <End Role="tb_cart_status" Type="Self.tb_cart_status" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_cart" Type="Self.tb_cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_cart_status">
+              <PropertyRef Name="status_id" />
+            </Principal>
+            <Dependent Role="tb_cart">
+              <PropertyRef Name="status_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_cart__user_id__5BE2A6F2">
+          <End Role="tb_user" Type="Self.tb_user" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_cart" Type="Self.tb_cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="tb_cart">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_produc__cart___619B8048">
+          <End Role="tb_cart" Type="Self.tb_cart" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_product" Type="Self.tb_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_cart">
+              <PropertyRef Name="cart_id" />
+            </Principal>
+            <Dependent Role="tb_product">
+              <PropertyRef Name="cart_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_produc__colle__5FB337D6">
+          <End Role="tb_collection" Type="Self.tb_collection" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_product" Type="Self.tb_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_collection">
+              <PropertyRef Name="collection_id" />
+            </Principal>
+            <Dependent Role="tb_product">
+              <PropertyRef Name="collection_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_produc__size___60A75C0F">
+          <End Role="tb_size" Type="Self.tb_size" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_product" Type="Self.tb_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_size">
+              <PropertyRef Name="size_id" />
+            </Principal>
+            <Dependent Role="tb_product">
+              <PropertyRef Name="size_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_review__produ__5CD6CB2B">
+          <End Role="tb_product" Type="Self.tb_product" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_review" Type="Self.tb_review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_product">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="tb_review">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_user__role_id__5EBF139D">
+          <End Role="tb_role" Type="Self.tb_role" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_user" Type="Self.tb_user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_role">
+              <PropertyRef Name="role_id" />
+            </Principal>
+            <Dependent Role="tb_user">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_u_addr__user___6383C8BA">
+          <End Role="tb_user" Type="Self.tb_user" Multiplicity="0..1" />
+          <End Role="tb_u_address" Type="Self.tb_u_address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="tb_u_address">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_user__address__5DCAEF64">
+          <End Role="tb_u_address" Type="Self.tb_u_address" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_user" Type="Self.tb_user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_u_address">
+              <PropertyRef Name="address_id" />
+            </Principal>
+            <Dependent Role="tb_user">
+              <PropertyRef Name="address_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_catalog_product">
+          <End Role="tb_catalog" Type="Self.tb_catalog" Multiplicity="*" />
+          <End Role="tb_product" Type="Self.tb_product" Multiplicity="*" />
+        </Association>
+        <Association Name="tb_tag_blog">
+          <End Role="tb_blog" Type="Self.tb_blog" Multiplicity="*" />
+          <End Role="tb_tag" Type="Self.tb_tag" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="velaMaryEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="tb_blog" EntityType="Self.tb_blog" />
+          <EntitySet Name="tb_cart" EntityType="Self.tb_cart" />
+          <EntitySet Name="tb_cart_status" EntityType="Self.tb_cart_status" />
+          <EntitySet Name="tb_catalog" EntityType="Self.tb_catalog" />
+          <EntitySet Name="tb_collection" EntityType="Self.tb_collection" />
+          <EntitySet Name="tb_product" EntityType="Self.tb_product" />
+          <EntitySet Name="tb_review" EntityType="Self.tb_review" />
+          <EntitySet Name="tb_role" EntityType="Self.tb_role" />
+          <EntitySet Name="tb_size" EntityType="Self.tb_size" />
+          <EntitySet Name="tb_tag" EntityType="Self.tb_tag" />
+          <EntitySet Name="tb_u_address" EntityType="Self.tb_u_address" />
+          <EntitySet Name="tb_user" EntityType="Self.tb_user" />
+          <AssociationSet Name="FK__tb_blog__user_id__59063A47" Association="Self.FK__tb_blog__user_id__59063A47">
+            <End Role="tb_user" EntitySet="tb_user" />
+            <End Role="tb_blog" EntitySet="tb_blog" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_cart__status___628FA481" Association="Self.FK__tb_cart__status___628FA481">
+            <End Role="tb_cart_status" EntitySet="tb_cart_status" />
+            <End Role="tb_cart" EntitySet="tb_cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_cart__user_id__5BE2A6F2" Association="Self.FK__tb_cart__user_id__5BE2A6F2">
+            <End Role="tb_user" EntitySet="tb_user" />
+            <End Role="tb_cart" EntitySet="tb_cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_produc__cart___619B8048" Association="Self.FK__tb_produc__cart___619B8048">
+            <End Role="tb_cart" EntitySet="tb_cart" />
+            <End Role="tb_product" EntitySet="tb_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_produc__colle__5FB337D6" Association="Self.FK__tb_produc__colle__5FB337D6">
+            <End Role="tb_collection" EntitySet="tb_collection" />
+            <End Role="tb_product" EntitySet="tb_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_produc__size___60A75C0F" Association="Self.FK__tb_produc__size___60A75C0F">
+            <End Role="tb_size" EntitySet="tb_size" />
+            <End Role="tb_product" EntitySet="tb_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_review__produ__5CD6CB2B" Association="Self.FK__tb_review__produ__5CD6CB2B">
+            <End Role="tb_product" EntitySet="tb_product" />
+            <End Role="tb_review" EntitySet="tb_review" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_user__role_id__5EBF139D" Association="Self.FK__tb_user__role_id__5EBF139D">
+            <End Role="tb_role" EntitySet="tb_role" />
+            <End Role="tb_user" EntitySet="tb_user" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_u_addr__user___6383C8BA" Association="Self.FK__tb_u_addr__user___6383C8BA">
+            <End Role="tb_user" EntitySet="tb_user" />
+            <End Role="tb_u_address" EntitySet="tb_u_address" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_user__address__5DCAEF64" Association="Self.FK__tb_user__address__5DCAEF64">
+            <End Role="tb_u_address" EntitySet="tb_u_address" />
+            <End Role="tb_user" EntitySet="tb_user" />
+          </AssociationSet>
+          <AssociationSet Name="tb_catalog_product" Association="Self.tb_catalog_product">
+            <End Role="tb_catalog" EntitySet="tb_catalog" />
+            <End Role="tb_product" EntitySet="tb_product" />
+          </AssociationSet>
+          <AssociationSet Name="tb_tag_blog" Association="Self.tb_tag_blog">
+            <End Role="tb_blog" EntitySet="tb_blog" />
+            <End Role="tb_tag" EntitySet="tb_tag" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="velaMaryModelStoreContainer" CdmEntityContainer="velaMaryEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="velaMaryModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_blog">
+            <EntityTypeMapping TypeName="velaMaryModel.tb_blog">
+              <MappingFragment StoreEntitySet="tb_blog">
+                <ScalarProperty Name="blog_id" ColumnName="blog_id" />
+                <ScalarProperty Name="imange" ColumnName="imange" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_cart">
+            <EntityTypeMapping TypeName="velaMaryModel.tb_cart">
+              <MappingFragment StoreEntitySet="tb_cart">
+                <ScalarProperty Name="cart_id" ColumnName="cart_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="status_id" ColumnName="status_id" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_cart_status">
+            <EntityTypeMapping TypeName="velaMaryModel.tb_cart_status">
+              <MappingFragment StoreEntitySet="tb_cart_status">
+                <ScalarProperty Name="status_id" ColumnName="status_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="icon" ColumnName="icon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_catalog">
+            <EntityTypeMapping TypeName="velaMaryModel.tb_catalog">
+              <MappingFragment StoreEntitySet="tb_catalog">
+                <ScalarProperty Name="catalog_id" ColumnName="catalog_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_collection">
+            <EntityTypeMapping TypeName="velaMaryModel.tb_collection">
+              <MappingFragment StoreEntitySet="tb_collection">
+                <ScalarProperty Name="collection_id" ColumnName="collection_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="image" ColumnName="image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_product">
+            <EntityTypeMapping TypeName="velaMaryModel.tb_product">
+              <MappingFragment StoreEntitySet="tb_product">
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="details" ColumnName="details" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="sizechart" ColumnName="sizechart" />
+                <ScalarProperty Name="size_id" ColumnName="size_id" />
+                <ScalarProperty Name="cart_id" ColumnName="cart_id" />
+                <ScalarProperty Name="collection_id" ColumnName="collection_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_review">
+            <EntityTypeMapping TypeName="velaMaryModel.tb_review">
+              <MappingFragment StoreEntitySet="tb_review">
+                <ScalarProperty Name="review_id" ColumnName="review_id" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="reviewer_name" ColumnName="reviewer_name" />
+                <ScalarProperty Name="reviewer_email" ColumnName="reviewer_email" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_role">
+            <EntityTypeMapping TypeName="velaMaryModel.tb_role">
+              <MappingFragment StoreEntitySet="tb_role">
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_size">
+            <EntityTypeMapping TypeName="velaMaryModel.tb_size">
+              <MappingFragment StoreEntitySet="tb_size">
+                <ScalarProperty Name="size_id" ColumnName="size_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_tag">
+            <EntityTypeMapping TypeName="velaMaryModel.tb_tag">
+              <MappingFragment StoreEntitySet="tb_tag">
+                <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_u_address">
+            <EntityTypeMapping TypeName="velaMaryModel.tb_u_address">
+              <MappingFragment StoreEntitySet="tb_u_address">
+                <ScalarProperty Name="address_id" ColumnName="address_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="country" ColumnName="country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_user">
+            <EntityTypeMapping TypeName="velaMaryModel.tb_user">
+              <MappingFragment StoreEntitySet="tb_user">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="fullname" ColumnName="fullname" />
+                <ScalarProperty Name="address_id" ColumnName="address_id" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="tb_catalog_product" TypeName="velaMaryModel.tb_catalog_product" StoreEntitySet="tb_catalog_product">
+            <EndProperty Name="tb_catalog">
+              <ScalarProperty Name="catalog_id" ColumnName="catalog_id" />
+            </EndProperty>
+            <EndProperty Name="tb_product">
+              <ScalarProperty Name="product_id" ColumnName="product_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="tb_tag_blog" TypeName="velaMaryModel.tb_tag_blog" StoreEntitySet="tb_tag_blog">
+            <EndProperty Name="tb_blog">
+              <ScalarProperty Name="blog_id" ColumnName="blog_id" />
+            </EndProperty>
+            <EndProperty Name="tb_tag">
+              <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

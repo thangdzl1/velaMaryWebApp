@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "velaMaryWebApp", "velaMaryWebApp\velaMaryWebApp.csproj", "{1BFD1BC3-0E96-488B-BBDE-3B2CEE01C3BD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DATA", "DATA\DATA.csproj", "{C89C0E30-9889-409A-B358-325CF0B39775}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{1BFD1BC3-0E96-488B-BBDE-3B2CEE01C3BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BFD1BC3-0E96-488B-BBDE-3B2CEE01C3BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BFD1BC3-0E96-488B-BBDE-3B2CEE01C3BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C89C0E30-9889-409A-B358-325CF0B39775}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C89C0E30-9889-409A-B358-325CF0B39775}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C89C0E30-9889-409A-B358-325CF0B39775}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C89C0E30-9889-409A-B358-325CF0B39775}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

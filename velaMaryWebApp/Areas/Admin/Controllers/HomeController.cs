@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DATA;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,15 +13,9 @@ namespace velaMaryWebApp.Areas.Admin.Controllers
         //GET ADMIN/HOME/Index
         public ActionResult Index()
         { 
-            velaMaryEntities db = new velaMaryEntities();
-            //Tính tổng tiền earned
-            ViewBag.totalEarned = (from item in db.tb_cart
-                               where item.status_id == 1 
-                               select item.price).Sum();
-            //Tính pending order
-            ViewBag.pendingOrder = (from item in db.tb_cart
-                        where item.status_id == 2
-                        select item).Count();
+            MapCart map = new MapCart();
+            ViewBag.totalEarned = map.getTotalEarned();
+            ViewBag.pendingOrder = map.getPendingOrder();
             return View();
         }
 
