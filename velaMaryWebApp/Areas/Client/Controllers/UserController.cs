@@ -39,7 +39,7 @@ namespace velaMaryWebApp.Areas.Client.Controllers
                 }
             }
             //Không có thì quay lại login View, Báo lỗi
-            ViewBag.error = "Incorrect Email or Password";
+            ViewBag.loginError = "Incorrect Email or Password";
             return View();
         }
 
@@ -51,10 +51,11 @@ namespace velaMaryWebApp.Areas.Client.Controllers
             if (mapUser.addUser(user))
             {
                 //Thành công thì chuyển sang login
-                return RedirectToAction("Login");
+                return RedirectToAction("Login", "User");
             }
             //Fail thì chuyển về Dashboard
-            return RedirectToAction("Index","Dashboard");
+            ViewBag.registerError = "Register Failed";
+            return View("Login", user);
         }
     }
 }

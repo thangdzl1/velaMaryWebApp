@@ -31,12 +31,12 @@
                             <form id="customer_login" method="post" accept-charset="UTF-8" data-login-with-shop-sign-in="true">
                                 <input type="hidden" name="form_type" value="customer_login" /><input type="hidden" name="utf8" value="✓" />
                                 <div class="formContent">
-                                    @if (ViewBag.error != null)
+                                    @if (ViewBag.loginError != null)
                                     {
                                         <div class="alert alert-danger">
                                             <div class="errors">
                                                 <ul>
-                                                    <li>@ViewBag.error</li>
+                                                    <li>@ViewBag.loginError</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -110,17 +110,16 @@
                                     </div>
                                 </div>
                             </form>-->
-                            @using (Html.BeginForm("ActionName", "ControllerName", FormMethod.Post, new { id = "create_customer", @class = "form-horizontal", role = "form" }))
+                            @using (Html.BeginForm("register", "User", FormMethod.Post, new { id = "create_customer", @class = "form-horizontal", role = "form" }))
                             {
                                 @Html.AntiForgeryToken()
 
                                 <div class="formContent">
                                     <div class="form-group">
-                                        
                                         @Html.EditorFor(model => model.fullname, new { htmlAttributes = new { @class = "form-control", placeholder = "Fullname" } })
                                     </div>
                                     <div class="form-group">
-                                        
+
                                         @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email", required = "required" } })
                                     </div>
                                     <div class="form-group form-group--pasword">
@@ -141,6 +140,13 @@
                                         <input type="submit" value="Create an account" class="btn btnVelaOne">
                                     </div>
                                 </div>
+                            }
+                            @if (ViewBag.registerError != null)
+                            {
+                                <script>
+                                    var errorMessage = @Html.Raw(Json.Encode(ViewBag.registerError));
+                                    alert(errorMessage);
+                                </script>
                             }
                         </div>
                     </div>

@@ -27,14 +27,16 @@ namespace DATA
         }
         public bool addUser(tb_user user)
         {
-            //Add User vào database
-            db.tb_user.Add(user);
-            int isSucess = db.SaveChanges();
-            if (isSucess > 0)
+            try
             {
+                //Add User vào database
+                db.tb_user.Add(user);
+                db.SaveChanges();
                 return true;
+            }catch (Exception ex)
+            {
+                return false;
             }
-            return false;
         }
     }
 }
