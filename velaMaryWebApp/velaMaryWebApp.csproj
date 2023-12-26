@@ -172,6 +172,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Client\ClientAreaRegistration.cs" />
+    <Compile Include="Areas\Client\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Client\Controllers\UserController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -1901,6 +1904,24 @@
     <Content Include="Assets\Client\blogs\news\tagged\shoes2679.html" />
     <Content Include="Assets\Client\blogs\news\tagged\shoes4658.html" />
     <Content Include="Assets\Client\blogs\POST.html" />
+    <Content Include="Assets\Client\cdn.shopify.com\shopifycloud\checkout-web\assets\512.baseline.en.8b90a53bd3093c9e6ad4.css" />
+    <Content Include="Assets\Client\cdn.shopify.com\shopifycloud\checkout-web\assets\512.baseline.en.f6f1312ca2756efa1d45.js" />
+    <Content Include="Assets\Client\cdn.shopify.com\shopifycloud\checkout-web\assets\598.baseline.en.96d1a37bf15dfc133f95.js" />
+    <Content Include="Assets\Client\cdn.shopify.com\shopifycloud\checkout-web\assets\661.baseline.en.a1c092d975f9701ce3b1.css" />
+    <Content Include="Assets\Client\cdn.shopify.com\shopifycloud\checkout-web\assets\731.baseline.en.68ceefcc66cfc32ca175.js" />
+    <Content Include="Assets\Client\cdn.shopify.com\shopifycloud\checkout-web\assets\844.baseline.en.2bcddb1bebd8d00bde9a.js" />
+    <Content Include="Assets\Client\cdn.shopify.com\shopifycloud\checkout-web\assets\845.baseline.en.167d9aca6a4c605025a7.js" />
+    <Content Include="Assets\Client\cdn.shopify.com\shopifycloud\checkout-web\assets\917.baseline.en.88daeefe46c532f2180e.js" />
+    <Content Include="Assets\Client\cdn.shopify.com\shopifycloud\checkout-web\assets\958.baseline.en.37b155682af690900247.js" />
+    <Content Include="Assets\Client\cdn.shopify.com\shopifycloud\checkout-web\assets\958.baseline.en.5f2080c96ce3453038d6.css" />
+    <Content Include="Assets\Client\cdn.shopify.com\shopifycloud\checkout-web\assets\app.baseline.en.25c714bfba20501c3fe8.js" />
+    <Content Include="Assets\Client\cdn.shopify.com\shopifycloud\checkout-web\assets\app.baseline.en.a3984c31989d09f92fc0.css" />
+    <Content Include="Assets\Client\cdn.shopify.com\shopifycloud\checkout-web\assets\Redesign.baseline.en.f30f54cff4c1d74e650f.js" />
+    <Content Include="Assets\Client\cdn.shopify.com\shopifycloud\checkout-web\assets\runtime.baseline.en.e1fd41caabfeba58d571.js" />
+    <Content Include="Assets\Client\cdn.shopify.com\shopifycloud\storefront-recaptcha-v3\v0.6\index.js" />
+    <Content Include="Assets\Client\cdn.shopify.com\s\files\1\1192\3200\files\sizechart1a5f7.jpg" />
+    <Content Include="Assets\Client\cdn.shopify.com\s\files\1\1253\6831\t\4\assets\twobanner_image27cbb.html" />
+    <Content Include="Assets\Client\cdn.shopify.com\s\files\1\1573\5553\files\21_Blog-post7d2b.jpg" />
     <Content Include="Assets\Client\cdn\shopifycloud\boomerang\shopify-boomerang-1.0.0.min.js" />
     <Content Include="Assets\Client\cdn\shopifycloud\portable-wallets\canary\portable-wallets.en.js" />
     <Content Include="Assets\Client\cdn\shopifycloud\portable-wallets\latest\portable-wallets.en.js" />
@@ -2199,7 +2220,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Assets\Admin\scss\navs\_global.scss" />
     <Content Include="Assets\Admin\scss\navs\_sidebar.scss" />
     <Content Include="Assets\Admin\scss\navs\_topbar.scss" />
@@ -2423,6 +2444,10 @@
     <Content Include="Assets\Client\products\velatheme.com" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_PatialSideBar.cshtml" />
+    <Content Include="Areas\Client\Views\web.config" />
+    <Content Include="Areas\Client\Views\User\Login.cshtml" />
+    <Content Include="Areas\Client\Views\Shared\_LayoutClient.cshtml" />
+    <Content Include="Areas\Client\Views\Dashboard\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2472,6 +2497,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Client\Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
