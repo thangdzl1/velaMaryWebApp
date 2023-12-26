@@ -7,21 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace velaMaryWebApp.Models
+namespace DATA.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_review
+    public partial class sysdiagram
     {
-        public int review_id { get; set; }
-        public Nullable<int> product_id { get; set; }
-        public string reviewer_name { get; set; }
-        public string reviewer_email { get; set; }
-        public string title { get; set; }
-        public string body { get; set; }
-        public int rating { get; set; }
-    
-        public virtual tb_product tb_product { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

@@ -7,27 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace velaMaryWebApp.Models
+namespace DATA.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_u_address
+    public partial class tb_cart
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tb_u_address()
+        public tb_cart()
         {
-            this.tb_user1 = new HashSet<tb_user>();
+            this.tb_product = new HashSet<tb_product>();
         }
     
-        public int address_id { get; set; }
+        public int cart_id { get; set; }
         public Nullable<int> user_id { get; set; }
-        public Nullable<int> phone_number { get; set; }
-        public string address { get; set; }
-        public string country { get; set; }
+        public Nullable<int> status_id { get; set; }
+        public int price { get; set; }
     
+        public virtual tb_cart_status tb_cart_status { get; set; }
         public virtual tb_user tb_user { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tb_user> tb_user1 { get; set; }
+        public virtual ICollection<tb_product> tb_product { get; set; }
     }
 }

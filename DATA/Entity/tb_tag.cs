@@ -7,23 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace velaMaryWebApp.Models
+namespace DATA.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_catalog
+    public partial class tb_tag
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tb_catalog()
+        public tb_tag()
         {
-            this.tb_product = new HashSet<tb_product>();
+            this.tb_blog = new HashSet<tb_blog>();
         }
     
-        public int catalog_id { get; set; }
+        public int tag_id { get; set; }
         public string name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tb_product> tb_product { get; set; }
+        public virtual ICollection<tb_blog> tb_blog { get; set; }
     }
 }
