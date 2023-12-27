@@ -172,6 +172,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Client\ClientAreaRegistration.cs" />
     <Compile Include="Areas\Client\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Client\Controllers\UserController.cs" />
@@ -201,6 +203,7 @@
     <Content Include="Assets\Admin\js\demo\chart-bar-demo.js" />
     <Content Include="Assets\Admin\js\demo\chart-pie-demo.js" />
     <Content Include="Assets\Admin\js\demo\datatables-demo.js" />
+    <Content Include="Assets\Admin\js\product-table.js" />
     <Content Include="Assets\Admin\js\sb-admin-2.js" />
     <Content Include="Assets\Admin\js\sb-admin-2.min.js" />
     <Content Include="Assets\Admin\vendor\bootstrap\js\bootstrap.bundle.js" />
@@ -2448,6 +2451,10 @@
     <Content Include="Areas\Client\Views\User\Login.cshtml" />
     <Content Include="Areas\Client\Views\Shared\_LayoutClient.cshtml" />
     <Content Include="Areas\Client\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Client\Views\Dashboard\Contact.cshtml" />
+    <Content Include="Areas\Client\Views\Dashboard\Blog.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

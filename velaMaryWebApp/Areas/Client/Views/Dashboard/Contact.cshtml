@@ -1,0 +1,196 @@
+﻿
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Areas/Client/Views/Shared/_LayoutClient.cshtml";
+}
+
+<div class="breadCrumbContact">
+    <div id="shopify-section-vela-breacrumb-image" class="shopify-section">
+        <section class="velaBreadcrumbs">
+            <div class="container">
+                <div class="velaBreadcrumbsInner">
+                    <div class="velaBreadcrumbsInnerWrap">
+                        <nav class="velaBreadcrumbWrap">
+                            <h1 class="breadcrumbHeading">Contact</h1>
+                            <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+                                <li itemprop="itemListElement" itemscope
+                                    itemtype="http://schema.org/ListItem">
+                                    <a id="homeLink" href="@Url.Action("Index", "Dashboard")" title="Back to the frontpage" itemprop="item">
+                                        <span itemprop="name">Home</span>
+                                    </a>
+                                    <meta itemprop="position" content="1" />
+                                </li>
+                                <li class="active" itemprop="itemListElement" itemscope
+                                    itemtype="http://schema.org/ListItem">
+                                    <span itemprop="item"><span itemprop="name">Contact</span></span>
+                                    <meta itemprop="position" content="2" />
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<section id="pageContent">
+    <div class="container-full">
+        <div class="pageContainer">
+            <div id="shopify-section-vela-template-contact" class="shopify-section">
+                <div class="pageContact">
+                    <div class="velaGoogleMap">
+                        <div id="googleMapvela-template-contact" class="velaGoogleMapInner"></div>
+                        <div class="googleOverPlay"></div>
+                        <script type="text/javascript">
+                            function initMap() {
+                                var uluru = { lat: 10.87013533598536, lng: 106.80296826931323 };
+                                var map = new google.maps.Map(document.getElementById('googleMapvela-template-contact'), {
+                                    zoom: 18,
+                                    center: uluru,
+                                    zoomControlOptions: {
+                                        position: google.maps.ControlPosition.LEFT_BOTTOM
+                                    },
+                                    styles: [
+                                        { elementType: 'geometry', stylers: [{ color: '#ebebeb' }] },
+                                        { elementType: 'labels.text.fill', stylers: [{ color: '#252525' }] },
+                                        {
+                                            featureType: 'poi.park',
+                                            elementType: 'geometry',
+                                            stylers: [{ color: '#ebebeb' }]
+                                        },
+                                        {
+                                            featureType: 'road',
+                                            elementType: 'geometry',
+                                            stylers: [{ color: '#fdfdfd' }]
+                                        },
+                                        {
+                                            featureType: 'water',
+                                            elementType: 'geometry',
+                                            stylers: [{ color: '#99b3cc' }]
+                                        }
+                                    ],
+                                });
+                                var marker = new google.maps.Marker({
+                                    position: uluru,
+                                    map: map
+                                });
+                            }
+                        </script>
+                    </div>
+                    <script async defer
+                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNI_ZWPqvdS6r6gPVO50I4TlYkfkZdXh8&callback=initMap"></script>
+                    <div class="container">
+                        <div class="rowFlex rowFlexMargin">
+                            <div class="col-xs-12 col-md-4 col-xl-4">
+                                <div class="pageContactLeft">
+                                    <h4 class="velaContactTitle velaHomeTitle velaTitle">
+                                        <span>
+                                            Our Main
+                                            Office
+                                        </span>
+                                    </h4>
+                                    <div class="velaContactBox">
+                                        <div class="velaContactBoxText velaContactBoxDesc">
+                                            <p>
+                                                Netro is a premium Templates theme with advanced admin
+                                                module. It&rsquo;s extremely customizable, easy to use and
+                                                fully responsive and retina ready. Vel illum dolore eu
+                                                feugiat nulla facilisis at vero eros et accumsan et iusto
+                                                odio dignissim qui blandit praesent luptatum zzril delenit
+                                                augue duis dolore te feugait nulla facilisi.
+                                            </p>
+                                        </div>
+                                        <div class="velaContactBoxText velaContactBoxAddress">
+                                            <span>Add:</span> Hàn Thuyên, khu phố 6 P, Thủ Đức, Thành phố Hồ Chí Minh
+                                        </div>
+                                        <div class="velaContactBoxText velaContactBoxEmail">
+                                            <span>Email:</span> quocthang6a1@gmail.com
+                                        </div>
+                                        <div class="velaContactBoxText velaContactBoxEmail">
+                                            <span>Business Phone:</span> (+84) 123 456 7890
+                                        </div>
+                                        <div class="velaContactBoxText velaContactBoxFax">
+                                            <span>Fax:</span> (+100) 123 456 7890 - (+100) 123 456 7891
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-8 col-xl-8">
+                                <div class="pageContactRight">
+                                    <h1 class="velaContactTitle velaHomeTitle velaTitle">
+                                        <span>Contact</span>
+                                    </h1>
+                                    <div class="formContactUs">
+                                        <form method="post"
+                                              action="https://velamary.myshopify.com/contact#contact_form"
+                                              id="contact_form" accept-charset="UTF-8" class="contact-form">
+                                            <input type="hidden" name="form_type" value="contact" /><input type="hidden" name="utf8" value="✓" />
+                                            <div class="formContent">
+
+
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-sm-4">
+                                                        <div class="form-group">
+
+                                                            <label for="ContactFormName"
+                                                                   class="hidden-label">
+                                                                Name
+                                                                <sup>*</sup>
+                                                            </label>
+                                                            <input type="text" id="ContactFormName"
+                                                                   class="form-control" name="contact[name]"
+                                                                   autocapitalize="words" value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-4">
+                                                        <div class="form-group">
+                                                            <label for="ContactFormEmail"
+                                                                   class="hidden-label">
+                                                                Email
+                                                                <sup>*</sup>
+                                                            </label>
+                                                            <input type="email" id="ContactFormEmail"
+                                                                   class="form-control" name="contact[email]"
+                                                                   autocorrect="off" autocapitalize="off"
+                                                                   value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-4">
+                                                        <div class="form-group">
+
+                                                            <label for="ContactFormPhone"
+                                                                   class="hidden-label">
+                                                                Phone Number
+                                                                <sup>*</sup>
+                                                            </label>
+                                                            <input type="tel" id="ContactFormPhone"
+                                                                   class="form-control"
+                                                                   name="contact[phone-number]"
+                                                                   pattern="[0-9\-]*" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="ContactFormMessage"
+                                                           class="hidden-label">Message <sup>*</sup></label>
+                                                    <textarea rows="6" id="ContactFormMessage"
+                                                              class="form-control"
+                                                              name="contact[body]"></textarea>
+                                                </div>
+                                                <div class="form-button">
+                                                    <input type="submit" class="btn btnContact"
+                                                           value="Send Message">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

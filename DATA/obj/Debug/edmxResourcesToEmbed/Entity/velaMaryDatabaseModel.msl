@@ -49,9 +49,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tb_p_image">
+      <EntityTypeMapping TypeName="velaMaryModel.tb_p_image">
+        <MappingFragment StoreEntitySet="tb_p_image">
+          <ScalarProperty Name="status_id" ColumnName="status_id" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="tb_product">
       <EntityTypeMapping TypeName="velaMaryModel.tb_product">
         <MappingFragment StoreEntitySet="tb_product">
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
           <ScalarProperty Name="product_id" ColumnName="product_id" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="details" ColumnName="details" />
@@ -139,14 +149,5 @@
         <ScalarProperty Name="tag_id" ColumnName="tag_id" />
       </EndProperty>
     </AssociationSetMapping>
-    <EntitySetMapping Name="tb_p_image">
-      <EntityTypeMapping TypeName="velaMaryModel.tb_p_image">
-        <MappingFragment StoreEntitySet="tb_p_image">
-          <ScalarProperty Name="product_id" ColumnName="product_id" />
-          <ScalarProperty Name="link" ColumnName="link" />
-          <ScalarProperty Name="status_id" ColumnName="status_id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

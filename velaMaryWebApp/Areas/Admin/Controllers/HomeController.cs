@@ -19,6 +19,5 @@ namespace velaMaryWebApp.Areas.Admin.Controllers
             return View();
         }
 
-
     }
 }

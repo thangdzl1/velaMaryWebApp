@@ -13,5 +13,13 @@ namespace velaMaryWebApp.Areas.Client.Controllers
         {
             return View();
         }
+        public ActionResult Contact()
+        {
+            return View();
+        }
+        public ActionResult Blog()
+        {
+            return View();
+        }
     }
 }

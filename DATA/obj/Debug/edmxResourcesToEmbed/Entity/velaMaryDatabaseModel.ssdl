@@ -71,6 +71,7 @@
     <Property Name="size_id" Type="int" />
     <Property Name="cart_id" Type="int" />
     <Property Name="collection_id" Type="int" />
+    <Property Name="quantity" Type="int" />
   </EntityType>
   <EntityType Name="tb_review">
     <Key>

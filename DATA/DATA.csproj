@@ -53,90 +53,93 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\tb_blog.cs">
+      <DependentUpon>velaMaryDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tb_cart.cs">
+      <DependentUpon>velaMaryDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tb_cart_status.cs">
+      <DependentUpon>velaMaryDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tb_catalog.cs">
+      <DependentUpon>velaMaryDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tb_collection.cs">
+      <DependentUpon>velaMaryDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tb_product.cs">
+      <DependentUpon>velaMaryDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tb_p_image.cs">
+      <DependentUpon>velaMaryDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tb_review.cs">
+      <DependentUpon>velaMaryDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tb_role.cs">
+      <DependentUpon>velaMaryDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tb_size.cs">
+      <DependentUpon>velaMaryDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tb_tag.cs">
+      <DependentUpon>velaMaryDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tb_user.cs">
+      <DependentUpon>velaMaryDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tb_u_address.cs">
+      <DependentUpon>velaMaryDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\velaMaryDatabaseModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>velaMaryDatabaseModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\velaMaryDatabaseModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>velaMaryDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\velaMaryDatabaseModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>velaMaryDatabaseModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="MapCollection.cs" />
+    <Compile Include="MapProduct.cs" />
     <Compile Include="MapRole.cs" />
     <Compile Include="MapCart.cs" />
     <Compile Include="MapUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Entity\sysdiagram.cs">
-      <DependentUpon>velaMaryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\tb_blog.cs">
-      <DependentUpon>velaMaryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\tb_cart.cs">
-      <DependentUpon>velaMaryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\tb_cart_status.cs">
-      <DependentUpon>velaMaryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\tb_catalog.cs">
-      <DependentUpon>velaMaryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\tb_collection.cs">
-      <DependentUpon>velaMaryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\tb_product.cs">
-      <DependentUpon>velaMaryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\tb_review.cs">
-      <DependentUpon>velaMaryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\tb_role.cs">
-      <DependentUpon>velaMaryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\tb_size.cs">
-      <DependentUpon>velaMaryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\tb_tag.cs">
-      <DependentUpon>velaMaryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\tb_user.cs">
-      <DependentUpon>velaMaryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\tb_u_address.cs">
-      <DependentUpon>velaMaryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\velaMaryModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>velaMaryModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\velaMaryModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>velaMaryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\velaMaryModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>velaMaryModel.edmx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
-    <EntityDeploy Include="Entity\velaMaryModel.edmx">
+    <EntityDeploy Include="Entity\velaMaryDatabaseModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>velaMaryModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>velaMaryDatabaseModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Entity\velaMaryModel.edmx.diagram">
-      <DependentUpon>velaMaryModel.edmx</DependentUpon>
+    <None Include="Entity\velaMaryDatabaseModel.edmx.diagram">
+      <DependentUpon>velaMaryDatabaseModel.edmx</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Entity\velaMaryModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>velaMaryModel.edmx</DependentUpon>
-      <LastGenOutput>velaMaryModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Entity\velaMaryModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>velaMaryModel.edmx</DependentUpon>
-      <LastGenOutput>velaMaryModel.cs</LastGenOutput>
-    </Content>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Entity\velaMaryDatabaseModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>velaMaryDatabaseModel.edmx</DependentUpon>
+      <LastGenOutput>velaMaryDatabaseModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\velaMaryDatabaseModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>velaMaryDatabaseModel.edmx</DependentUpon>
+      <LastGenOutput>velaMaryDatabaseModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

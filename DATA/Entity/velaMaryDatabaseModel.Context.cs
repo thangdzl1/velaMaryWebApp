@@ -25,12 +25,12 @@ namespace DATA.Entity
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<tb_blog> tb_blog { get; set; }
         public virtual DbSet<tb_cart> tb_cart { get; set; }
         public virtual DbSet<tb_cart_status> tb_cart_status { get; set; }
         public virtual DbSet<tb_catalog> tb_catalog { get; set; }
         public virtual DbSet<tb_collection> tb_collection { get; set; }
+        public virtual DbSet<tb_p_image> tb_p_image { get; set; }
         public virtual DbSet<tb_product> tb_product { get; set; }
         public virtual DbSet<tb_review> tb_review { get; set; }
         public virtual DbSet<tb_role> tb_role { get; set; }
@@ -38,6 +38,5 @@ namespace DATA.Entity
         public virtual DbSet<tb_tag> tb_tag { get; set; }
         public virtual DbSet<tb_u_address> tb_u_address { get; set; }
         public virtual DbSet<tb_user> tb_user { get; set; }
-        public virtual DbSet<tb_p_image> tb_p_image { get; set; }
     }
 }

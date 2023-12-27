@@ -72,11 +72,11 @@
           <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="details" Type="text" Nullable="false" />
           <Property Name="price" Type="int" Nullable="false" />
-          <Property Name="quantity" Type="int" Nullable="false" />
           <Property Name="sizechart" Type="varchar" MaxLength="255" />
           <Property Name="size_id" Type="int" />
           <Property Name="cart_id" Type="int" />
           <Property Name="collection_id" Type="int" />
+          <Property Name="quantity" Type="int" />
         </EntityType>
         <EntityType Name="tb_review">
           <Key>
@@ -429,16 +429,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="velaMaryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <EntityType Name="tb_blog">
           <Key>
             <PropertyRef Name="blog_id" />
@@ -490,6 +480,15 @@
           <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tb_product" Relationship="Self.FK__tb_produc__colle__5FB337D6" FromRole="tb_collection" ToRole="tb_product" />
         </EntityType>
+        <EntityType Name="tb_p_image">
+          <Key>
+            <PropertyRef Name="status_id" />
+          </Key>
+          <Property Name="status_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="link" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="product_id" Type="Int32" />
+          <NavigationProperty Name="tb_product" Relationship="Self.FK__tb_p_imag__produ__66603565" FromRole="tb_p_image" ToRole="tb_product" />
+        </EntityType>
         <EntityType Name="tb_product">
           <Key>
             <PropertyRef Name="product_id" />
@@ -498,17 +497,17 @@
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="price" Type="Int32" Nullable="false" />
-          <Property Name="quantity" Type="Int32" Nullable="false" />
           <Property Name="sizechart" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="size_id" Type="Int32" />
           <Property Name="cart_id" Type="Int32" />
           <Property Name="collection_id" Type="Int32" />
           <NavigationProperty Name="tb_cart" Relationship="Self.FK__tb_produc__cart___619B8048" FromRole="tb_product" ToRole="tb_cart" />
           <NavigationProperty Name="tb_collection" Relationship="Self.FK__tb_produc__colle__5FB337D6" FromRole="tb_product" ToRole="tb_collection" />
+          <NavigationProperty Name="tb_p_image" Relationship="Self.FK__tb_p_imag__produ__66603565" FromRole="tb_product" ToRole="tb_p_image" />
           <NavigationProperty Name="tb_size" Relationship="Self.FK__tb_produc__size___60A75C0F" FromRole="tb_product" ToRole="tb_size" />
           <NavigationProperty Name="tb_review" Relationship="Self.FK__tb_review__produ__5CD6CB2B" FromRole="tb_product" ToRole="tb_review" />
           <NavigationProperty Name="tb_catalog" Relationship="Self.tb_catalog_product" FromRole="tb_product" ToRole="tb_catalog" />
-          <NavigationProperty Name="tb_p_image" Relationship="velaMaryModel.FK__tb_p_imag__produ__66603565" FromRole="tb_product" ToRole="tb_p_image" />
+          <Property Name="quantity" Type="Int32" />
         </EntityType>
         <EntityType Name="tb_review">
           <Key>
@@ -551,7 +550,7 @@
           <Key>
             <PropertyRef Name="address_id" />
           </Key>
-          <Property Name="address_id" Type="Int32" Nullable="false" />
+          <Property Name="address_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="user_id" Type="Int32" />
           <Property Name="phone_number" Type="Int32" />
           <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
@@ -645,6 +644,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__tb_p_imag__produ__66603565">
+          <End Role="tb_product" Type="Self.tb_product" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_p_image" Type="Self.tb_p_image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_product">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="tb_p_image">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__tb_produc__size___60A75C0F">
           <End Role="tb_size" Type="Self.tb_size" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -722,12 +735,12 @@
           <End Role="tb_tag" Type="Self.tb_tag" Multiplicity="*" />
         </Association>
         <EntityContainer Name="velaMaryEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="tb_blog" EntityType="Self.tb_blog" />
           <EntitySet Name="tb_cart" EntityType="Self.tb_cart" />
           <EntitySet Name="tb_cart_status" EntityType="Self.tb_cart_status" />
           <EntitySet Name="tb_catalog" EntityType="Self.tb_catalog" />
           <EntitySet Name="tb_collection" EntityType="Self.tb_collection" />
+          <EntitySet Name="tb_p_image" EntityType="Self.tb_p_image" />
           <EntitySet Name="tb_product" EntityType="Self.tb_product" />
           <EntitySet Name="tb_review" EntityType="Self.tb_review" />
           <EntitySet Name="tb_role" EntityType="Self.tb_role" />
@@ -754,6 +767,10 @@
           <AssociationSet Name="FK__tb_produc__colle__5FB337D6" Association="Self.FK__tb_produc__colle__5FB337D6">
             <End Role="tb_collection" EntitySet="tb_collection" />
             <End Role="tb_product" EntitySet="tb_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_p_imag__produ__66603565" Association="Self.FK__tb_p_imag__produ__66603565">
+            <End Role="tb_product" EntitySet="tb_product" />
+            <End Role="tb_p_image" EntitySet="tb_p_image" />
           </AssociationSet>
           <AssociationSet Name="FK__tb_produc__size___60A75C0F" Association="Self.FK__tb_produc__size___60A75C0F">
             <End Role="tb_size" EntitySet="tb_size" />
@@ -783,35 +800,7 @@
             <End Role="tb_blog" EntitySet="tb_blog" />
             <End Role="tb_tag" EntitySet="tb_tag" />
           </AssociationSet>
-          <EntitySet Name="tb_p_image" EntityType="velaMaryModel.tb_p_image" />
-          <AssociationSet Name="FK__tb_p_imag__produ__66603565" Association="velaMaryModel.FK__tb_p_imag__produ__66603565">
-            <End Role="tb_product" EntitySet="tb_product" />
-            <End Role="tb_p_image" EntitySet="tb_p_image" />
-          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="tb_p_image">
-          <Key>
-            <PropertyRef Name="status_id" />
-          </Key>
-          <Property Name="status_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="link" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="product_id" Type="Int32" />
-          <NavigationProperty Name="tb_product" Relationship="velaMaryModel.FK__tb_p_imag__produ__66603565" FromRole="tb_p_image" ToRole="tb_product" />
-        </EntityType>
-        <Association Name="FK__tb_p_imag__produ__66603565">
-          <End Type="velaMaryModel.tb_product" Role="tb_product" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="velaMaryModel.tb_p_image" Role="tb_p_image" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tb_product">
-              <PropertyRef Name="product_id" />
-            </Principal>
-            <Dependent Role="tb_p_image">
-              <PropertyRef Name="product_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -866,14 +855,23 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="tb_p_image">
+            <EntityTypeMapping TypeName="velaMaryModel.tb_p_image">
+              <MappingFragment StoreEntitySet="tb_p_image">
+                <ScalarProperty Name="status_id" ColumnName="status_id" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tb_product">
             <EntityTypeMapping TypeName="velaMaryModel.tb_product">
               <MappingFragment StoreEntitySet="tb_product">
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
                 <ScalarProperty Name="product_id" ColumnName="product_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="details" ColumnName="details" />
                 <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="quantity" ColumnName="quantity" />
                 <ScalarProperty Name="sizechart" ColumnName="sizechart" />
                 <ScalarProperty Name="size_id" ColumnName="size_id" />
                 <ScalarProperty Name="cart_id" ColumnName="cart_id" />
@@ -957,15 +955,6 @@
               <ScalarProperty Name="tag_id" ColumnName="tag_id" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="tb_p_image">
-            <EntityTypeMapping TypeName="velaMaryModel.tb_p_image">
-              <MappingFragment StoreEntitySet="tb_p_image">
-                <ScalarProperty Name="product_id" ColumnName="product_id" />
-                <ScalarProperty Name="link" ColumnName="link" />
-                <ScalarProperty Name="status_id" ColumnName="status_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
