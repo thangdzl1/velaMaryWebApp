@@ -131,7 +131,7 @@
     <Key>
       <PropertyRef Name="user_id" />
     </Key>
-    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="email" Type="varchar" MaxLength="255" />
     <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="fullname" Type="varchar" MaxLength="255" Nullable="false" />

@@ -30,6 +30,8 @@
         <AssociationConnector Association="velaMaryModel.FK__tb_user__address__5DCAEF64" ManuallyRouted="false" />
         <AssociationConnector Association="velaMaryModel.tb_catalog_product" ManuallyRouted="false" />
         <AssociationConnector Association="velaMaryModel.tb_tag_blog" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="velaMaryModel.tb_p_image" Width="1.5" PointX="12.75" PointY="10.625" />
+        <AssociationConnector Association="velaMaryModel.FK__tb_p_imag__produ__66603565" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

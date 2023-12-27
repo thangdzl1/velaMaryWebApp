@@ -38,5 +38,6 @@ namespace DATA.Entity
         public virtual DbSet<tb_tag> tb_tag { get; set; }
         public virtual DbSet<tb_u_address> tb_u_address { get; set; }
         public virtual DbSet<tb_user> tb_user { get; set; }
+        public virtual DbSet<tb_p_image> tb_p_image { get; set; }
     }
 }

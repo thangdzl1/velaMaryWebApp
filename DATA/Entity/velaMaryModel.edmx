@@ -4,22 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="velaMaryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
+    <Schema Namespace="velaMaryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tb_blog">
           <Key>
             <PropertyRef Name="blog_id" />
           </Key>
-          <Property Name="blog_id" Type="int" Nullable="false" />
+          <Property Name="blog_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="imange" Type="varchar" MaxLength="255" />
           <Property Name="title" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="description" Type="text" Nullable="false" />
@@ -30,7 +20,7 @@
           <Key>
             <PropertyRef Name="cart_id" />
           </Key>
-          <Property Name="cart_id" Type="int" Nullable="false" />
+          <Property Name="cart_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="user_id" Type="int" />
           <Property Name="status_id" Type="int" />
           <Property Name="price" Type="int" Nullable="false" />
@@ -39,7 +29,7 @@
           <Key>
             <PropertyRef Name="status_id" />
           </Key>
-          <Property Name="status_id" Type="int" Nullable="false" />
+          <Property Name="status_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="255" />
           <Property Name="icon" Type="varchar" MaxLength="255" />
         </EntityType>
@@ -47,7 +37,7 @@
           <Key>
             <PropertyRef Name="catalog_id" />
           </Key>
-          <Property Name="catalog_id" Type="int" Nullable="false" />
+          <Property Name="catalog_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="tb_catalog_product">
@@ -62,20 +52,27 @@
           <Key>
             <PropertyRef Name="collection_id" />
           </Key>
-          <Property Name="collection_id" Type="int" Nullable="false" />
+          <Property Name="collection_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="255" />
           <Property Name="image" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="tb_p_image">
+          <Key>
+            <PropertyRef Name="status_id" />
+          </Key>
+          <Property Name="status_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="link" Type="varchar" MaxLength="255" />
+          <Property Name="product_id" Type="int" />
         </EntityType>
         <EntityType Name="tb_product">
           <Key>
             <PropertyRef Name="product_id" />
           </Key>
-          <Property Name="product_id" Type="int" Nullable="false" />
+          <Property Name="product_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="details" Type="text" Nullable="false" />
           <Property Name="price" Type="int" Nullable="false" />
           <Property Name="quantity" Type="int" Nullable="false" />
-          <Property Name="image" Type="varchar" MaxLength="255" />
           <Property Name="sizechart" Type="varchar" MaxLength="255" />
           <Property Name="size_id" Type="int" />
           <Property Name="cart_id" Type="int" />
@@ -85,7 +82,7 @@
           <Key>
             <PropertyRef Name="review_id" />
           </Key>
-          <Property Name="review_id" Type="int" Nullable="false" />
+          <Property Name="review_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="product_id" Type="int" />
           <Property Name="reviewer_name" Type="text" />
           <Property Name="reviewer_email" Type="text" />
@@ -97,21 +94,21 @@
           <Key>
             <PropertyRef Name="role_id" />
           </Key>
-          <Property Name="role_id" Type="int" Nullable="false" />
+          <Property Name="role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="tb_size">
           <Key>
             <PropertyRef Name="size_id" />
           </Key>
-          <Property Name="size_id" Type="int" Nullable="false" />
+          <Property Name="size_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="tb_tag">
           <Key>
             <PropertyRef Name="tag_id" />
           </Key>
-          <Property Name="tag_id" Type="int" Nullable="false" />
+          <Property Name="tag_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="tb_tag_blog">
@@ -126,7 +123,7 @@
           <Key>
             <PropertyRef Name="address_id" />
           </Key>
-          <Property Name="address_id" Type="int" Nullable="false" />
+          <Property Name="address_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="user_id" Type="int" />
           <Property Name="phone_number" Type="int" />
           <Property Name="address" Type="varchar" MaxLength="255" Nullable="false" />
@@ -136,7 +133,7 @@
           <Key>
             <PropertyRef Name="user_id" />
           </Key>
-          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="255" />
           <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="fullname" Type="varchar" MaxLength="255" Nullable="false" />
@@ -209,6 +206,20 @@
               <PropertyRef Name="product_id" />
             </Principal>
             <Dependent Role="tb_catalog_product">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_p_imag__produ__66603565">
+          <End Role="tb_product" Type="Self.tb_product" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_p_image" Type="Self.tb_p_image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_product">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="tb_p_image">
               <PropertyRef Name="product_id" />
             </Dependent>
           </ReferentialConstraint>
@@ -338,13 +349,13 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="velaMaryModelStoreContainer">
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_blog" EntityType="Self.tb_blog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_cart" EntityType="Self.tb_cart" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_cart_status" EntityType="Self.tb_cart_status" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_catalog" EntityType="Self.tb_catalog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_catalog_product" EntityType="Self.tb_catalog_product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_collection" EntityType="Self.tb_collection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_p_image" EntityType="Self.tb_p_image" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_product" EntityType="Self.tb_product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_review" EntityType="Self.tb_review" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_role" EntityType="Self.tb_role" Schema="dbo" store:Type="Tables" />
@@ -372,6 +383,10 @@
           <AssociationSet Name="FK__tb_catalo__produ__5AEE82B9" Association="Self.FK__tb_catalo__produ__5AEE82B9">
             <End Role="tb_product" EntitySet="tb_product" />
             <End Role="tb_catalog_product" EntitySet="tb_catalog_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_p_imag__produ__66603565" Association="Self.FK__tb_p_imag__produ__66603565">
+            <End Role="tb_product" EntitySet="tb_product" />
+            <End Role="tb_p_image" EntitySet="tb_p_image" />
           </AssociationSet>
           <AssociationSet Name="FK__tb_produc__cart___619B8048" Association="Self.FK__tb_produc__cart___619B8048">
             <End Role="tb_cart" EntitySet="tb_cart" />
@@ -410,8 +425,7 @@
             <End Role="tb_user" EntitySet="tb_user" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="velaMaryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -429,7 +443,7 @@
           <Key>
             <PropertyRef Name="blog_id" />
           </Key>
-          <Property Name="blog_id" Type="Int32" Nullable="false" />
+          <Property Name="blog_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="imange" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
@@ -442,7 +456,7 @@
           <Key>
             <PropertyRef Name="cart_id" />
           </Key>
-          <Property Name="cart_id" Type="Int32" Nullable="false" />
+          <Property Name="cart_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="user_id" Type="Int32" />
           <Property Name="status_id" Type="Int32" />
           <Property Name="price" Type="Int32" Nullable="false" />
@@ -454,7 +468,7 @@
           <Key>
             <PropertyRef Name="status_id" />
           </Key>
-          <Property Name="status_id" Type="Int32" Nullable="false" />
+          <Property Name="status_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="icon" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tb_cart" Relationship="Self.FK__tb_cart__status___628FA481" FromRole="tb_cart_status" ToRole="tb_cart" />
@@ -463,7 +477,7 @@
           <Key>
             <PropertyRef Name="catalog_id" />
           </Key>
-          <Property Name="catalog_id" Type="Int32" Nullable="false" />
+          <Property Name="catalog_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tb_product" Relationship="Self.tb_catalog_product" FromRole="tb_catalog" ToRole="tb_product" />
         </EntityType>
@@ -471,7 +485,7 @@
           <Key>
             <PropertyRef Name="collection_id" />
           </Key>
-          <Property Name="collection_id" Type="Int32" Nullable="false" />
+          <Property Name="collection_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tb_product" Relationship="Self.FK__tb_produc__colle__5FB337D6" FromRole="tb_collection" ToRole="tb_product" />
@@ -480,12 +494,11 @@
           <Key>
             <PropertyRef Name="product_id" />
           </Key>
-          <Property Name="product_id" Type="Int32" Nullable="false" />
+          <Property Name="product_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="price" Type="Int32" Nullable="false" />
           <Property Name="quantity" Type="Int32" Nullable="false" />
-          <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="sizechart" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="size_id" Type="Int32" />
           <Property Name="cart_id" Type="Int32" />
@@ -495,12 +508,13 @@
           <NavigationProperty Name="tb_size" Relationship="Self.FK__tb_produc__size___60A75C0F" FromRole="tb_product" ToRole="tb_size" />
           <NavigationProperty Name="tb_review" Relationship="Self.FK__tb_review__produ__5CD6CB2B" FromRole="tb_product" ToRole="tb_review" />
           <NavigationProperty Name="tb_catalog" Relationship="Self.tb_catalog_product" FromRole="tb_product" ToRole="tb_catalog" />
+          <NavigationProperty Name="tb_p_image" Relationship="velaMaryModel.FK__tb_p_imag__produ__66603565" FromRole="tb_product" ToRole="tb_p_image" />
         </EntityType>
         <EntityType Name="tb_review">
           <Key>
             <PropertyRef Name="review_id" />
           </Key>
-          <Property Name="review_id" Type="Int32" Nullable="false" />
+          <Property Name="review_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="product_id" Type="Int32" />
           <Property Name="reviewer_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="reviewer_email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
@@ -513,7 +527,7 @@
           <Key>
             <PropertyRef Name="role_id" />
           </Key>
-          <Property Name="role_id" Type="Int32" Nullable="false" />
+          <Property Name="role_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tb_user" Relationship="Self.FK__tb_user__role_id__5EBF139D" FromRole="tb_role" ToRole="tb_user" />
         </EntityType>
@@ -521,7 +535,7 @@
           <Key>
             <PropertyRef Name="size_id" />
           </Key>
-          <Property Name="size_id" Type="Int32" Nullable="false" />
+          <Property Name="size_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tb_product" Relationship="Self.FK__tb_produc__size___60A75C0F" FromRole="tb_size" ToRole="tb_product" />
         </EntityType>
@@ -529,7 +543,7 @@
           <Key>
             <PropertyRef Name="tag_id" />
           </Key>
-          <Property Name="tag_id" Type="Int32" Nullable="false" />
+          <Property Name="tag_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tb_blog" Relationship="Self.tb_tag_blog" FromRole="tb_tag" ToRole="tb_blog" />
         </EntityType>
@@ -549,7 +563,7 @@
           <Key>
             <PropertyRef Name="user_id" />
           </Key>
-          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="fullname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
@@ -769,24 +783,41 @@
             <End Role="tb_blog" EntitySet="tb_blog" />
             <End Role="tb_tag" EntitySet="tb_tag" />
           </AssociationSet>
+          <EntitySet Name="tb_p_image" EntityType="velaMaryModel.tb_p_image" />
+          <AssociationSet Name="FK__tb_p_imag__produ__66603565" Association="velaMaryModel.FK__tb_p_imag__produ__66603565">
+            <End Role="tb_product" EntitySet="tb_product" />
+            <End Role="tb_p_image" EntitySet="tb_p_image" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="tb_p_image">
+          <Key>
+            <PropertyRef Name="status_id" />
+          </Key>
+          <Property Name="status_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="link" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="product_id" Type="Int32" />
+          <NavigationProperty Name="tb_product" Relationship="velaMaryModel.FK__tb_p_imag__produ__66603565" FromRole="tb_p_image" ToRole="tb_product" />
+        </EntityType>
+        <Association Name="FK__tb_p_imag__produ__66603565">
+          <End Type="velaMaryModel.tb_product" Role="tb_product" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="velaMaryModel.tb_p_image" Role="tb_p_image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_product">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="tb_p_image">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="velaMaryModelStoreContainer" CdmEntityContainer="velaMaryEntities">
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="velaMaryModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tb_blog">
             <EntityTypeMapping TypeName="velaMaryModel.tb_blog">
               <MappingFragment StoreEntitySet="tb_blog">
@@ -843,7 +874,6 @@
                 <ScalarProperty Name="details" ColumnName="details" />
                 <ScalarProperty Name="price" ColumnName="price" />
                 <ScalarProperty Name="quantity" ColumnName="quantity" />
-                <ScalarProperty Name="image" ColumnName="image" />
                 <ScalarProperty Name="sizechart" ColumnName="sizechart" />
                 <ScalarProperty Name="size_id" ColumnName="size_id" />
                 <ScalarProperty Name="cart_id" ColumnName="cart_id" />
@@ -927,6 +957,15 @@
               <ScalarProperty Name="tag_id" ColumnName="tag_id" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="tb_p_image">
+            <EntityTypeMapping TypeName="velaMaryModel.tb_p_image">
+              <MappingFragment StoreEntitySet="tb_p_image">
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="status_id" ColumnName="status_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -19,6 +19,7 @@ namespace DATA.Entity
         {
             this.tb_review = new HashSet<tb_review>();
             this.tb_catalog = new HashSet<tb_catalog>();
+            this.tb_p_image = new HashSet<tb_p_image>();
         }
     
         public int product_id { get; set; }
@@ -26,7 +27,6 @@ namespace DATA.Entity
         public string details { get; set; }
         public int price { get; set; }
         public int quantity { get; set; }
-        public string image { get; set; }
         public string sizechart { get; set; }
         public Nullable<int> size_id { get; set; }
         public Nullable<int> cart_id { get; set; }
@@ -39,5 +39,7 @@ namespace DATA.Entity
         public virtual ICollection<tb_review> tb_review { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tb_catalog> tb_catalog { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tb_p_image> tb_p_image { get; set; }
     }
 }

@@ -30,10 +30,21 @@ namespace DATA
             try
             {
                 //Add User vào database
-                db.tb_user.Add(user);
-                db.SaveChanges();
+                var newUser = new tb_user()
+                {
+                    fullname = user.fullname,
+                    email = user.email,
+                    password = user.password,
+                    role_id = user.role_id,
+                };
+                using(db)
+                {
+                    db.tb_user.Add(newUser);
+                    db.SaveChanges();
+                }
                 return true;
-            }catch (Exception ex)
+            }catch
+
             {
                 return false;
             }
